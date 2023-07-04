@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input tag</title>
+</head>
+<body>
+    <!-- 사용자에게 값을 입력받을때 사용하는 태그 -->
+
+    <h1>text type</h1>
+
+    <input type="text"
+    name="name"
+    placeholder="이름을 입력해주세요"
+    value="홍길동"/>
+    <!-- type을 설정해주지 않으면 기본값이 되어버림
+        name : backend에서 내용을 전달할때 사용하는 것이니 습관적으로 사용하는게 좋음
+        placeholder : 안내 메시지를 보내는 것
+        value : 기본값을 설정 가능, 바로 아래의 button과 같이 활용 가능-->
+
+    <h1>button type</h1>
+    <input type="button" value="제출"/>
+    <!-- 기능적인 역활을 할 뿐 내용을 전달하진 않으므로 name을 안 씀 -->
+    <!-- 굳이 내용이 안 들어가는데 input을 쓰는게 이상하므로 아에 아래처럼 씀 -->
+    <button type="submit">제출</button>
+
+    <h1>password type</h1>
+    <input type="password" name="pw"/>
+    <!-- 비밀번호 입력할때 뭘 입력했는지 가려주는 기능을 넣는 입력 방식 -->
+    
+    <h1>checkbox type</h1>
+    <input type="checkbox" name="hobby1" value="축구"> 축구
+    <input type="checkbox" name="hobby2" value="야구"> 야구
+    <!-- value를 안 적어서 보내면 backend가 뭘 체크했는지 알 수 없음 -->
+    <!-- name을 hobby로 동일하게 두면 이 둘을 묶어서 한번에 보내게 됨 -->
+
+
+
+</body>
+</html>
