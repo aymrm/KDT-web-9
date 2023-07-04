@@ -36,15 +36,39 @@
     <!-- name을 hobby로 동일하게 두면 이 둘을 묶어서 한번에 보내게 됨 -->
 
     <h1>radio type</h1>
-    <input type="radio" name="gender" value="남자" id="남자"> 남자
+    <input type="radio" name="gender" value="남자" id="남자" checked> 남자
     <input type="radio" name="gender" value="여자" id="여자"> 여자
     <!-- 중복 체크 불가한 체크 박스 타입 -->
     <!-- name이 같은거 중에서만 하나씩 선택이 가능 (이름 선택 잘 해야 함) -->
-    
+    <!-- checked를 넣으면 선택 하나를 기본 값으로 넣어둘 수 있다 -->
+
     <label for="남자"></label>
     <label for="여자"></label>
     <!-- 바로 위에 id를 적고 나서 라벨을 이렇게 추가하면
         체크 박스 외에도 이름을 눌러도 체크가 되도록 할 수 있다-->
+    
+    <h1> date type</h1>
+    <input type="date" name="birth"/>
+    <input type="datetime-local" name="birth time"/>
 
+    <h1>select tag</h1>
+    <select name="select name">
+        <optgroup label="옵션 1~2">
+            <option value="option 1">옵션1</option>
+            <option value="option 2" selected>옵션2</option>
+        </optgroup>
+        <optgroup label="옵션 3~4">
+            <option value="option 3">옵션3</option>
+            <option value="option 4" disabled>옵션4</option>
+        </optgroup>
+    </select>
+    <!-- select tag에 name이 들어가고 option에 value가 들어가야함-->
+    <!-- opt group을 만들면 옵션 선택에 대해 그룹을 주어줄 수 있다 -->
+    <!-- disabled를 하면 보이기만 하고 선택을 할 수 없게 됨 -->
+
+    <input type="text" name="name" value="김성제" disabled>
+    <input type="text" name="email" value="aymrm@naver.com" readonly>
+    <!-- 이런 식으로 주어주면 이메일 값을 이미 바꿨는데 disabled가 없으면 수정 가능 -->
+    <!-- 비슷한 용도로 readonly도 사용함 해보면 둘이 나오는 결과가 조금 다름-->
 </body>
 </html>

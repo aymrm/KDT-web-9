@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>table tag</h1>
+    <table border="1" cellspacing="0" cellpadding="10" align="center">
+        <tr>
+            <th>이름</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>010-2727-2727</td>
+        </tr>
+        <tr>
+            <td>홍길남</td>
+            <td>010-2727-2727</td>
+        </tr>
+    </table>
+    <!-- th는 header 즉, 이름 전화번호 같은 분류 목룍들을 적고 -->
+    <!-- td안에 그 내용들을 적는 것, th는 굳이 없어도 됨 -->
+    <!-- tr은 위에서부터 첫 줄 둘째 줄 셋째 줄 느낌으로 내려가는 것 -->
+    <!-- border를 넣으면 표 형태로 표현해줌 -->
+    <!-- cellspacing을 0으로 하면 한줄씩으로 해주고 -->
+    <!-- cellpadding을 넣으면 표 안의 여유 거리를 줌 -->
+    <!-- align을 주면 위치를 왼쪽 가운데 오른쪽 느낌으로 줄 수 있다 -->
+    <!-- bordercolor를 주면 표 경계에 색을 부여함 -->
+    <!-- bgcolor를 쓰면 표 내부에 색을 넣어줌 -->
+
+    <br/><br/>
+
+    <table border="1" cellspacing="0" cellpadding="10" align="center">
+        <tr>
+            <th>제목1</th>
+            <th>제목2</th>
+            <th>제목3</th>
+        </tr>
+        <tr>
+            <td colspan="2">내용1</td>
+            <!-- <td>내용2</td> -->
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td rowspan="2">내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <!-- <td>내용1</td> -->
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+    </table>
+    <!-- colspan을 쓰면 오른쪽으로 2칸 row span을 쓰면 아래쪽으로 2칸을 합친다-->
+
+    <thead>
+        
+    </thead>
+
+</body>
+</html>

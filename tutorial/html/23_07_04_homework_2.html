@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>설문조사</h1>
+    이름
+    <input type="text" name="name">
+    <br/>
+    이메일
+    <input type="text" name="email">
+    <br/><br/>
+    <h2>성별</h2>
+    <input type="radio" name="gender" value="남자" id="남자" checked> 남자
+    <input type="radio" name="gender" value="여자" id="여자"> 여자
+    <br/> <br/>
+    <h2>나이</h2>
+    <input type="radio" name="age" value="10대" checked>10대
+    <input type="radio" name="age" value="20대">20대
+    <input type="radio" name="age" value="30대">30대
+    <input type="radio" name="age" value="40대">40대
+    <input type="radio" name="age" value="50대">50대
+    <input type="radio" name="age" value="60대 이상">60대 이상
+    <br/> <br/>
+    <h2>원하는 강의 (복수 응답 가능)</h2>
+    <input type="checkbox" name="html" checked> html
+    <input type="checkbox" name="javascript"> javascript
+    <input type="checkbox" name="css"> css
+    <br/> <br/>
+    <h2>본인의 수준</h2>
+    <select name="select name">
+        <option value="high">상급</option>
+        <option value="middle">중급</option>
+        <option value="low" selected>초급</option>
+    </select>
+    <br/> <br/> <br/>
+    <textarea cols="50" rows="10" placeholder="하고 싶은 말을 써주세요"></textarea>
+    <br/> <br/>
+    <input type="button" value="제출">
+</body>
+</html>
