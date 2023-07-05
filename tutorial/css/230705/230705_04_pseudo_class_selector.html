@@ -46,14 +46,38 @@
     .fruits span:first-child{
         color:green;
     }
+    /* 순서가 이상해서 조심 fruits 태그에서 가장 먼저 오는 애가 span이면 변경 */
 
     .fruits div:first-child{
         color: blue;
     }
     /* fruits 태그 안에서 첫 태그를 고르되 그게 div라면 골라라 라는 느낌 */
-    .fruits last-child{
+    /* 처음 오는 애의 태그가 span이므로 변화를 줄 수 없음 */
+
+    .fruits h3:last-child{
         color: red;
     }
+    /* 형제 요소 (같은 곳에 묶여 있으면서 들여쓰기 수도 같은 것)중에 가장 */
+    /* 가장 마지막에 있는 것의 태그가 h3이면 아래의 변화를 주라는 것*/
+
+    .fruits *:nth-child(3){
+        background-color:gold;
+    }
+    /* 형제 요소중 위에서 3번째가 *태그이면 아래 변화를 줘라 이니까 무조건 실행됨 */
+    /* 인덱스 개념이 아니라 3번째 라는 것인데 아래 예시때매 조금 헷갈린다 */
+
+    .fruits *:nth-child(2n)
+    {
+        background-color: aquamarine;
+        color:white;
+    }
+    /* 이렇게 하면 for문을 쓴 것 처럼 여러개 돌려주는데 n은 시작이 0부터라 한다 */
+    /* 함수는 n번째 느낌으로 정의를 했는데 css에서 n 문법은 0부터인 케이스인듯 */
+
+    .fruits span:not(.orange){
+        color:red;
+    }
+    /* fruits  내부에서 orange가 아닌 것들 중 span인 것을 골라 변화시킨다 */
 </style>
 
 <body>
@@ -65,6 +89,14 @@
 
     <div>
         <input class="name_input" type="text" name="name" placeholder="이름을 입력해주세요">
+    </div>
+
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>사과</h3>
     </div>
 </body>
 </html>
