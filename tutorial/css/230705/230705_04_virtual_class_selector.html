@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a:hover{
+        color:red;
+    }
+    /* a태그를 hover했을때 (= 마우스 커서를 갖다 댔을때)라는 뜻 */
+   
+    button{
+        color:#00d0ff;
+    }
+    /* 버튼 자체를 커스터마이징 가능 */
+
+    button:hover{
+        color:white;
+        background-color:blue;
+    }
+    /* 버튼에 갖다 대면 변화를 주는 것 */
+
+    a:active{
+        color:yellow;
+    }
+    /* 클릭하고 있는 동안에 변화를 주는 것 */
+
+    button:active{
+        color:yellow;
+    }
+
+    input:focus{
+        background-color: orange;
+    }
+    /* input 입력 받는 곳이 클릭되어서 입력받는 동안이면 색이 변함 */
+
+    div > .name_input:focus{
+        background-color: coral;
+    }
+    a:visited{
+        color:deeppink;
+    }
+
+    .fruits span:first-child{
+        color:green;
+    }
+
+    .fruits div:first-child{
+        color: blue;
+    }
+    /* fruits 태그 안에서 첫 태그를 고르되 그게 div라면 골라라 라는 느낌 */
+    .fruits last-child{
+        color: red;
+    }
+</style>
+
+<body>
+    <!-- 가상 클래스 태그 -->
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <button type="button">제출</button>
+
+    <input class="name_input" type="text" name="name" placeholder="이름을 입력해주세요">
+
+    <div>
+        <input class="name_input" type="text" name="name" placeholder="이름을 입력해주세요">
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<!-- 복합 선택자 -->
+<style>
+    span.orange{
+        color:orange;
+    }
+    /* span 태그에서 orange 클래스를 골라 적용함 */
+    .lime.lime.orange{
+        color:lime;
+    }
+    /* class가 lime이면서 orange인 클래스를 골라 적용함 */
+    div > p{
+        color:blue;
+    }
+    /* div 내부에 있는 p를 골라서 적용함 */
+    div > .orange{
+        background-color:orange;
+    }
+    /* div 내부에 있는 orange 클래스를 골라 적용함 */
+    ul + div{
+        color:blueviolet;
+    }
+    /* ul 바로 뒤에 붙는 div 태그를 골라 적용함 */
+    /* ul + p 로 하면 토마토가 있어 보이지만 바로 뒤가 아니라 불가 */
+    .apple ~ li{
+        font-weight: 900px;
+        font-size:30px;
+    }
+    /* apple 클래스인 애를 고른 후 그 뒤에 나오는 li 태그들을 모두 선택 */
+</style>
+<body>
+    <div>
+        <ul>
+            <li class="apple">사과</li>
+            <li>딸기</li>
+            <li class="lime ornage">라임오렌지</li>
+        </ul>
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
+</body>
+
+
+</html>
