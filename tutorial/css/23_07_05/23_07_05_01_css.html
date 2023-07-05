@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 인라인 방식 </h1>
+    <div style="color:red">안녕하세요</div>
+    <!-- 인라인 형태로 적으면 재사용이 불가능하므로 잘 쓰지 않음 -->
+    
+    <h1> 내장 방식 </h1>
+    <style>
+        div{
+            color:blue;
+        }
+    </style>
+    <div>안녕하세요</div>
+
+    <!-- 아래에 있는 모든 div 태그에 빨간색을 주겠다는 것 -->
+
+    <h1> 링크 방식 </h1>
+    <link rel="stylesheet" href="./23_07_05_01_a.css"/>
+    <!-- 외부에 링크를 만들어서 가져와 태그를 주는 형태 -->
+    <div> 안녕하세요 </div>
+
+    <div style="color:blueviolet">안녕하세요</div>
+    <!-- 모두 넣어보면 알겠지만 인라인 방식이 무조건 우선이고
+        내장 방식과 링크 방식은 둘 중 뒤에 나온게 파일 전체에 적용된다 -->
+
+</body>
+<body>
+    <style>
+        div{
+            color:blue;
+        }
+    </style>
+    <div>안녕하세요</div>
+</body>
+<!-- body를 분리해도 폴더의 가장 마지막에 나온게 전체에 영향을 미친다 -->
+
+<style>
+    div{
+        color:aqua;
+        background-color:blue;
+    }
+    .main{
+        font-size:30px;
+    }
+    .nor{
+        font-weight:900;
+        width:100;
+        height:150;
+    }
+</style>
+
+<body>
+    <div class=".main">안녕</div>
+</body>
+<!-- 그냥 div만 쓰면 tag가 되고 .main처럼 .을 찍고 하면 class로 인식됨 -->
+<!-- .으로 찍인 애는 <div class="main">형태로 인식시켜야 함 -->
+</html>
