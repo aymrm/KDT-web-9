@@ -11,7 +11,9 @@
         width:200px;
         height:100px;
         background-color: aqua;
+        border-radius: 10px 20px 15px 30px;
     }
+    /* border-radius는 각 꼭짓점을 둥글게 하는 정도 */
 
     .border-1{
         border-color:black red blue yellow;
@@ -27,6 +29,31 @@
         border-top: 5px dashed red;
     }
 
+    .content-box{
+        box-sizing:content-box;
+        padding:20px;
+        border: 10px solid black;
+        margin:20px;
+        display:none;
+    }
+
+    .border-box{
+        box-sizing:border-box;
+        padding:20px;
+        border:10px solid black;
+        margin:20px;
+    }
+    /* content는 이 과정을 할수록 커지는데 border는 그대로거나 작아짐 */
+    /* margin은 둘 다 영향을 미치지 않음 */
+
+    div:hover{
+        opacity:0.7;
+    }
+    /* opercity를 이용하면 불투명도를 변경할 수 있음 */
+    /* 0~1 사이의 값을 가지며 투명해지는거지 0으로 두면 사라지는게 아님*/
+    /* visibility:hidden을 사용하는 것과 같은 효과 */
+    /* display:none을 하면 자리 차지도 안 하게 사라지게 할 수 있음 */
+
 </style>
 
 <body>
@@ -35,5 +62,9 @@
     <div class="box border-2"></div>
     <br/>
     <div class="box border-3"></div>
+    <br/>
+    <div class="box content-box">abc</div>
+    <br/>
+    <div class="box border-box">abc</div>
 </body>
 </html>

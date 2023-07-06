@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .out_box{
+        overflow: visible;
+        /* 기본값이라 굳이 안 적어도 됨 */
+        background-color: blue;
+        height: 150px;
+        width: 150px
+    }
+    .auto{
+        overflow: auto;
+    }
+    .scroll{
+        overflow:scroll;
+    }
+    .in_box{
+        background-color: orange;
+        height:60px;
+        width:180px;
+        margin-left:30px;
+    }
+
+    .flex-box{
+        height:500px;
+        display:flex;
+        /* 자식 요소를 inline box로 변환 */
+        background-color: aqua;
+        flex-direction: column;
+        /* 디폴트는 로우 이므로 column으로 바꾸면 아래 둘이 서로 바뀜 */
+        justify-content: center;
+        /* flex일때 사용 가능하고 가로 가운데로 정렬 */
+        align-items: center;
+        /* flex일때 사용 가능하고 세로 가운데로 정렬 */
+    }
+    .child-box{
+        width:100px;
+        height:100px;
+        background-color: blue;
+        margin:10px;
+    }
+</style>
+
+<body>
+    <div class="out_box">
+        <br/><br/>
+        <div class="in_box"></div>
+    </div>
+    <br/>
+    <div>
+        <div class="out_box auto">
+        <br/><br/>
+        <div class="in_box"></div>
+    </div>
+    <br/>
+    <div>
+        <div class="out_box scroll">
+        <br/><br/>
+        <div class="in_box"></div>
+    </div>
+
+    <br/><br/>
+    <div class="flex-box">
+    <div class="child-box"></div>
+    <div class="child-box"></div>
+    <div class="child-box"></div>
+    </div>
+</body>
+</html>
