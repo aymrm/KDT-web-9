@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link rel="stylesheet" href="./tag_form/main_form.css"/>
 <body>
-    <input type="text" placeholder="아이디">
-    <br/>
-    <input type="password" placeholder="비밀번호">
-    <input type="button" value="로그인">
-    <br/>
-    <a href="./sign_up_page.html" target="_blank">회원가입</a>
+    <table>
+        <tr>
+            <td colspan="2"><input type="text" placeholder="아이디"></td>
+            <td rowspan="2"><button>로그인</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="password" placeholder="비밀번호"></td>
+        </tr>
+        <tr>
+            <td><a href="./sign_up_page.html" target="_blank">회원가입</a></td>
+            <td><a href="./find_id_page.html" target="_blank">아이디 찾기</a></td>
+            <td><a href="./find_password_page.html" target="_blank">비밀번호 찾기</a></td>
+        </tr>
+    </table>
 </body>
 </html>
