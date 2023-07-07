@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 다시 공부하기를 권장 -->
+<style>
+    .back{
+        width:500px;
+        height:500px;
+        background-image: url("../image/lion.png");
+        /* 박스 안을 이미지 크기로 넣는데 남는 부분은 반복시켜서 채움 */
+        background-repeat: repeat-x;
+        /* x축 방향으로만 반복하라는 뜻 */
+        /* background-position:left bottom; */
+        /* 배경 위치를 왼쪽 아래로 고정 */
+        background-size:cover;
+        /* 부모 사이즈 그대로 배경 크기를 잡아라 */
+        /* px로 적으면 1개만 있으면 가로를 맞춘 후 세로를 비율에 맞춰줌 */
+        /* 2개의 값을 적으면 가로 세로를 그대로 지정해줌 */
+        /* 세로를 먼저 맞춘 후 가로를 비율에 맞추고 싶으면 auto 20px 형태로 주면 됨 */
+        
+        /* size를 cover로 하면 긴 축에 이미지를 맞추어 크기를 조정 */
+        /* contain을 사용하면 짧은 축에 이미지를 맞추어 크기 조정함  */
+        background-attachment:scroll;
+        /* 스크롤하면 이미지가 같이 따라옴 */
+        overflow: auto;
+    }
+
+    .parents{
+        width:500px;
+        height:200px;
+        background-color:orange;
+    }
+
+</style>
+
+<body>
+    <div class="parents">
+        <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+        <div class="back"></div>
+    </div>
+</body>
+</html>

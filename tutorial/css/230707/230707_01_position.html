@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin:0;
+    }
+
+    div{
+        width:100px;
+        height:100px;
+    }
+
+    .relative{
+        position:relative;
+    }
+    /* relative는 자기 자신을 기준으로 상대적으로 위치를 조정하는 것 */
+
+    .r-1{
+        left:50px;
+        top:50px;
+        background-color: red;
+        /* 나머지가 이동 없이 이 클래스를 가진 것만 이동 */
+        /* 현 위치 기준 왼쪽에서 50px 떼어낸다는 느낌이라 오른쪽으로 감 */
+        /* 마찬가지로 top도 아래로 이동함 */
+    }
+    
+    .r-2{
+        bottom:50px;
+        background-color: blue;
+    }
+
+    .r-3{
+        right:-10px;
+        background-color: yellow;
+        /* 음수 값도 사용 가능 */
+    }
+
+    .parents{
+        position:relative;
+        width:auto;
+    }
+
+    .absolute-1{
+        position:absolute;
+        background-color: orange;
+        top:30px;
+        right:10px;
+        /* 부모 기준 이동이 되어서 오른쪽에서 10px 때어낸거라 */
+        /* 오른쪽 끝에서 10px 왼쪽에 있음 */
+        /* px대신 %를 쓰면 부모의 넓이 기준 10%애 해당되는 위치로 잡음 */
+    }
+
+    .absolute-2{
+        position:absolute;
+        background-color: green;
+        top:20px;
+        right:5%;
+    }
+
+    .fixed{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:30px;
+        background-color: aqua;
+    }
+    /* 내가 스크롤을 내려도 nav바를 상단에 고정시키고 싶을때 fixed를 이용함 */
+    /* nav바는 가장 앞에 와서 뒤를 가리기에 nav의 높이 만큼을 본문에 margin을 넣어줘야함 */
+    .container{
+        background-color: aqua;
+        position:relative;
+        width:300px;
+        height:300px;
+        z-index:4;
+        /* z-index가 가장 크지만 형제중에 큰 애가 위로 가는거지 */
+        /* 부모는 자식보다 위로 갈 수 없음 */
+    }
+
+    .item{
+        position:absolute;
+        width:100px;
+        height:100px;
+    }
+    
+    .one{
+        background-color: red;
+        top:20px;
+        left:20px;
+        z-index:2;
+    }
+    
+    .two{
+        background-color: orange;
+        top:40px;
+        left:40px;
+        z-index:3;
+    }
+
+    .three{
+        background-color: green;
+        top:60px;
+        left:60px;
+    }
+</style>
+
+<body>
+    <div class="relative r-1"></div>
+    <div class="relative r-2"></div>
+    <div class="relative r-3"></div>
+
+    <div class="parents">
+        <div class="absolute-1"></div>
+        <div class="absolute-2"></div>
+    </div>
+
+    <div class="fixed"></div>
+    
+    <div class="container">
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+    </div>
+</body>
+</html>

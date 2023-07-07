@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div > div{
+        border-radius:50%;
+    }
+    .environment{
+        position:relative;
+        width:500px;
+        height:500px;
+    }
+    .hitomi{
+        position:absolute;
+        width:20px;
+        height:20px;
+        top:28px;
+        left:20px;
+    }
+    .eye{
+        position:absolute;
+        width:30px;
+        height:30px;
+        top:25px;
+        left:20px;
+    }
+    .part{
+        position:absolute;
+        width:100px;
+        height:100px;
+    }
+    .white{
+        background-color: white;
+        z-index:2;
+    }
+    .black{
+        background-color: black;
+        z-index:3;
+    }
+
+    .blue{
+        background-color: blue;
+        z-index:1;
+    }
+
+    .darkslateblue{
+        background-color:darkslateblue;
+        top:40px;
+        left:55px;
+        z-index:2;
+    }
+
+    .navy{
+        background-color: navy;
+        top:75px;
+        left:100px;
+        z-index:3;
+    }
+
+    .gray{
+        background-color: gray;
+        top:75px;
+        left:155px;
+        z-index:4;
+    }
+
+    .cadetblue{
+        background-color: cadetblue;
+        top:75px;
+        left:220px;
+        z-index:6;
+    }
+    .grass{
+        position:absolute;
+        width:350px;
+        height:130px;
+        top:75px;
+        z-index:5;
+    }
+</style>
+
+<body>
+    <div class="environment">
+        <div class="blue part"></div>
+        <div class="white eye"></div>
+        <div class="black hitomi"></div>
+        <div class="darkslateblue part"></div>
+        <div class="navy part"></div>
+        <div class="gray part"></div>
+        <div class="cadetblue part"></div>
+        <img src="../image/pngwing.com.png" class="grass">
+    </div>
+</body>
+</html>

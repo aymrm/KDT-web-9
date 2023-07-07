@@ -10,3 +10,11 @@ table,tr,th,td{
 button{
     padding: 10px 30px
 }
+
+a{
+    text-decoration: none;
+}
+
+nav > a{
+    font-size:30px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .parents{
+        background-color: blue;
+        position:relative;
+        width:500px;
+        height:500px
+    }
+    
+    .child{
+        width:100px;
+        height:100px;
+    }
+
+    .item-1{
+        background-color: aqua;
+        position:relative;
+        left:50px;
+        top:30px;
+    }
+
+    .item-2{
+        background-color: brown;
+        position:absolute;
+        right:30px;
+        bottom:100px;
+    }
+
+    .item-3{
+        background-color:red;
+        position:fixed;
+        right:100px;
+        top:100px;
+    }
+
+</style>
+
+<body>
+    <div class="parents">
+        <div class="child item-1"></div>
+        <div class="child item-2"></div>
+        <div class="child item-3"></div>
+    </div>
+</body>
+</html>
