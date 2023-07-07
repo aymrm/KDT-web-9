@@ -12,10 +12,20 @@
         flex-direction: row;
         /* row가 기본값으로 되어 있어서 column으로 바꾸면 세로 정렬이 됨  */
         /* row-reverse는 가로 정렬을 하되 오른쪽 끝에서부터 정렬 */
+        justify-content: space-evenly;
+        /* flex-end를 쓰면 끝점에서부터 정렬을 시작, center면 가운데 정렬 */
+        /* space-between을 쓰면 처음 마진 없이 각 거리만 동일하게 거리를 둠 */
+        /* space-around를 쓰면 각 마진값이 동일하도록 거리를 둠 */
+        /* space-evenly를 쓰면 첫 마진까지 모두 동일한 거리를 둠*/
+        flex-wrap:wrap;
+        /* 양이 많아지면 간격이 좁아지는게 아니라 밑으로 내려서 만든다는 의미 */
+        align-items:flex-end;
+        /* justify-content는 가로 간격에 대해인데 */
+        /* align-content는 세로 간격에 대해 정렬한다 */
     }
     .container > div{
         width:100px;
-        height: 100px;
+        height:100px;
     }
     .red{
         background-color: red;
@@ -34,6 +44,15 @@
         <div class="yellow"></div>
         <!-- div인데도 인라인 블록으로만 가짐 -->
         
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
         <div class="red"></div>
         <div class="orange"></div>
         <div class="yellow"></div>

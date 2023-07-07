@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        width:100px;
+        height:100px;
+        transition-property:transform;
+        /* transform이라는 변화가 일어나는 동안 시간 지연을 준다 */
+        transition-duration:2s;
+        transition-timing-function: linear;
+        transition-delay:2s;
+    }
+
+    img#translate:active{
+        transform:translate(100px,40px);
+    }
+
+    img#scaleX:active{
+        transform:scaleX(2);
+    }
+
+    img#rotate:active{
+        transform:rotateX(45deg);
+        backface-visibility:hidden;
+        /* 뒷면이 되면 보이지 않게 한다는 코드 */
+    }
+
+    img#skew:active{
+        transform:skewX(45deg);
+    }
+    /* transform 뒤에 여러개를 붙여서 한번에 할 수도 있음 */
+    /* 이 변화를 순간적으로 일으킬수도 있지만 transition을 이용해 천천히 할 수 있다 */
+
+    .box{
+        margin-left:0;
+        background-color: red;
+        width:100px;
+        height:100px;
+        transition:all 2s
+    }
+    
+    .box:hover{
+        margin-left:100px;
+    }
+    /* 요거 활용하면 재밌을지도 */
+</style>
+
+<body>
+    <img id="translate"
+    src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    <img id="scaleX"
+    src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    <img id="rotate"
+    src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    <img id="skew"
+    src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"/>
+    <div class="box"></div>
+</body>
+</html>

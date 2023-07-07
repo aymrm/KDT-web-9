@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        width:500px;
+        height:500px;
+        background-color: blue;
+        display:flex;
+    }
+    .container > div{
+        width:100px;
+        height:100px;;
+    }
+
+    .orange{
+        background-color: orange;
+    }
+
+    .red{
+        background-color: red;
+    }
+
+    .yellow{
+        background-color: yellow;
+    }
+
+    .one-line-center{
+        align-items:center;
+    }
+
+    .two-line-center{
+        flex-wrap:wrap;
+        align-content:center;
+        justify-content:center;
+    }
+
+    .two-line-gap{
+        flex-wrap:wrap;
+        align-content:space-around;
+        justify-content:center;
+    }
+
+</style>
+
+<body>
+    <div class="one-line-center container">
+        <div class="orange"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+
+    <br/>
+
+    <div class="two-line-center container">
+        <div class="orange"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+
+    <br/>
+
+    <div class="two-line-gap container">
+        <div class="orange"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+    
+</body>
+</html>

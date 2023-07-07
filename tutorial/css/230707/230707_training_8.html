@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        position:relative;
+    }
+
+    img{
+        transform:skewY(45deg);
+        width:100px;
+        position:absolute;
+    }
+
+    .first{
+        z-index:3;
+    }
+
+    .second{
+        z-index:2;
+        transform:translate(60px) skewY(45deg);
+    }
+
+    .third{
+        z-index:1;
+        transform:translate(120px) skewY(45deg);
+    }
+
+</style>
+<body>
+    <img src="../image/lion.png" class="first">
+    <img src="../image/lion.png" class="second">
+    <img src="../image/lion.png" class="third">
+</body>
+</html>
