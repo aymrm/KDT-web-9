@@ -47,3 +47,25 @@ names[4]="짱";
 let isIncludes=names.includes("짱")
 console.log(isIncludes);
 
+let cat={
+    age:5,
+    name:"",
+    mew:function(){
+        console.log("야옹");
+    }
+}
+
+cat.mew;
+console.log(cat);
+console.log(cat.age);
+
+
+// typeof는 자료형을 알려주는 함수
+
+let score1=prompt("첫번째 성적을 입력하세요");
+let score2=prompt("두번째 성적을 입력하세요");
+console.log(score1,score2);
+
+// 문자열을 숫자로 변환할때는 Number() , 숫자를 문자열로 변환할때는 String()
+// .tostring()형태로 뒤에 붙여서 사용 가능하나 null에는 불가능
+
