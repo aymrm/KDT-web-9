@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        position:absolute;
+        animation:left-appear 1s linear;
+        display:flex;
+        overflow:visible;
+    }
+
+    @keyframes left-appear{
+        0%{
+            left:1000px;
+            overflow:hidden;
+        }
+        50%{
+            overflow:visible;
+        }
+        100%{
+            left:0px;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div>“As I relax on the sofa and gaze around a room a thought hits me: this is exactly the place I’ve been looking for all my life. A little hideaway in some sinkhole somewhere. I’d always thought of it as a secret, imaginary place, and can barely believe that it actually exists. I close my eyes and take a breath, and wonder of it all settles over me like a gentle cloud.”</div>
+    </div>
+</body>
+</html>

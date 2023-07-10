@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin:0;
+    }
+    div{
+        position:absolute;
+        width:100px;
+        height:100px;
+        background-color: salmon;
+        transition: 2s linear;
+        animation: move-to-right 2s linear 5s infinite alternate;
+        /* 애니 이름, 지속 시간 ,  */
+    }
+
+    @keyframes move-to-right{
+        0%{
+            left:0px;
+        }
+
+        50%{
+            left:100px;
+        }
+
+        100%{
+            left:0px;
+        }
+    }
+</style>
+<body>
+    <div></div>
+</body>
+</html>
