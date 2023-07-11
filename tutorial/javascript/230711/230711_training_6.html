@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i=1;
+        let n=99;
+        let sum23=0;
+        while(true){
+            if(i>n){
+                break;
+            }
+            if(i%2==0)
+            {
+                sum23+=i;
+            }
+            else if(i%3==0){
+                sum23+=i
+            }
+            i++;
+        }
+        console.log(sum23);
+
+        let sum23_2=0;
+        for (let i=2 ; i<100 ; i=i+2){
+            sum23_2+=i;
+        }
+        for (let i=3 ; i<100 ; i=i+6){
+            sum23_2+=i;
+        }
+        console.log(sum23_2);
+    </script>
+</body>
+</html>

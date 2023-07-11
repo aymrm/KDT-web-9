@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function search1(n){
+            for(let i=1 ; i<=n ; i++){
+                if (i%13==0){
+                    if(i%2==1){
+                        console.log(i);
+                    }
+                }
+            }
+        }
+
+        function search2(n){
+            for(let i=1 ; i<=n ; i=i+2){
+                if (i%13==0){
+                    console.log(i);
+                }
+            }
+        }
+
+        function search3(n){
+            for(let i=13 ; i<=n ; i=i+13){
+                if (i%2==1){
+                    console.log(i);
+                }
+            }
+        }
+
+        function search(n){
+            for(let i=13; i<=n;i=i+26){
+                console.log(i);
+            }
+        }
+        let searNum=Number(prompt("어디까지 확인하고 싶은지"))
+        search1(searNum);
+    </script>
+</body>
+</html>
