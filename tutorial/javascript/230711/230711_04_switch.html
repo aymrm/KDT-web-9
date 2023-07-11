@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num=1;
+        switch(num){
+            case 0:
+                console.log("0")
+                break;
+            case 1:
+                console.log("1")
+                break;
+            case 2:
+                console.log("2")
+                break;
+        }
+        // 중간에 브레이크를 안 걸면 case에 들어간 뒤로 아래를 쭉 읽는다
+        // 의도적으로 안 써서 사용하는 방법도 있을듯함
+
+        
+        let age = 18;
+        age>=20 ? console.log("성인") : console.log("미성년");
+        // ? 앞에 조건을 걸고 ?뒤에는 참일 때 실행 코드 : 거짓일 때 실행 코드를 씀
+        
+        let state = age>=20? "성인" : "미성년";
+        // 이렇게 조건이 참이면 앞의 값을, 거짓이면 뒤의 값을 입력하게도 가능
+
+
+    </script>
+</body>
+</html>

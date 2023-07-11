@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sayHello(){
+            console.log("hello");
+        }
+        sayHello();
+
+        // 이런식으로 정의해도 되지만 아래 방식으로도 정의 가능
+        let sayHello2 = function(){
+            console.log("hello2");
+        }
+        sayHello2();
+        // 윗 방식은 선언만 되어 있으면 위에서도 사용 가능하지만
+        // 아래 방식은 아래에서 호출해야만 사용이 가능하다
+
+        let sayHello3 = () => {
+            console.log("hello3");
+        }
+        sayHello3();
+        // 두번째 방식을 짧게 요약해서 쓰는 버전인 것 같다
+
+        let number=5;
+        function aaa(){
+            console.log("aaa");
+        }
+        // 매개변수 : 함수 외부에서 사용한 변수, 값 등을 내부로 전달할때 사용
+        // 반환값 : 함수 내부에서 생성된 변수, 값 등을 외부로 전달할때 사용
+    
+        function bbb(){
+            return "bbb";
+        }
+        console.log(bbb());
+
+        function ccc(num1,num2){
+            console.log(num1+num2);
+        }
+        let number1=5;
+        let number2=3;
+        ccc(number1,number2);
+
+        function ddd(num){
+            return num**2;
+        }
+
+        let sum = (num1,num2)=>{
+            let num=num1+num2;
+            let mul=num*5;
+            return mul;
+        }
+    </script>
+</body>
+</html>

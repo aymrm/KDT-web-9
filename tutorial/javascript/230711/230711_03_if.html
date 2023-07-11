@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age=null;
+        let gender=null;
+        while(true){
+            age=Number(prompt("나이"));
+            if (age==0){
+                break;
+            }
+            gender=prompt("성별");
+            if(age<=7 && age>=0){
+                if (gender[0]=="남"){
+                    alert("남자 유아")
+                }
+                else if (gender[0]=="여"){
+                    alert("여자 유아")
+                }
+                else{
+                    alert("유아");
+                }
+            } else if(age>=8 && age<=13){
+                if (gender[0]=="남"){
+                    alert("초등 남학생")
+                }
+                else if (gender[0]=="여"){
+                    alert("초등 여학생")
+                }
+                else{
+                    alert("초등학생");
+                }
+            } else if(age>=14 && age<=16){
+                if (gender[0]=="남"){
+                    alert("중등 남학생")
+                }
+                else if (gender[0]=="여"){
+                    alert("중등 여학생")
+                }
+                else{
+                    alert("중학생");
+                }
+            } else if(age>=17 && age<=19){
+                if (gender[0]=="남"){
+                    alert("고등 남학생")
+                }
+                else if (gender[0]=="여"){
+                    alert("고등 여학생")
+                }
+                else{
+                    alert("고등학생");
+                }
+            } else{
+                if (gender[0]=="남"){
+                    alert("성인 남성")
+                }
+                else if (gender[0]=="여"){
+                    alert("성인 여성")
+                }
+                else{
+                    alert("성인");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

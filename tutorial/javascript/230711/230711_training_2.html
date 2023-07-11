@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(x,y){
+            alert(x+y);
+        }
+        function sub(x,y){
+            alert(x-y);
+        }
+        function divide(x,y){
+            alert(x/y);
+        }
+        function mul(x,y){
+            alert(x*y);
+        }
+        let prompt_x=Number(prompt("x"));
+        let prompt_y=Number(prompt("y"));
+    </script>
+    <button onclick="add(prompt_x,prompt_y)">더하기</button>
+    <button onclick="sub(prompt_x,prompt_y)">빼기</button>
+    <button onclick="mul(prompt_x,prompt_y)">곱하기</button>
+    <button onclick="divide(prompt_x,prompt_y)">나누기</button>
+
+</body>
+</html>

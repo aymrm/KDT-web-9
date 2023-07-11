@@ -62,10 +62,15 @@ console.log(cat.age);
 
 // typeof는 자료형을 알려주는 함수
 
-let score1=prompt("첫번째 성적을 입력하세요");
-let score2=prompt("두번째 성적을 입력하세요");
-console.log(score1,score2);
+// let score1=prompt("첫번째 성적을 입력하세요");
+// let score2=prompt("두번째 성적을 입력하세요");
+// console.log(score1,score2);
 
 // 문자열을 숫자로 변환할때는 Number() , 숫자를 문자열로 변환할때는 String()
 // .tostring()형태로 뒤에 붙여서 사용 가능하나 null에는 불가능
+
+// ==은 비교연산자 이기는 한데 여기서는 자료형을 구분하진 않는다
+// 즉, 5=="5"가 성립하기에 이거까지 확인하기 위해서는 5==="5"로 3개를 써야한다
+
+
 
