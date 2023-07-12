@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="red" class="box red">
+        <span>붉은색</span>
+        <span>푸른색</span>
+    </div>
+
+    <div class="box orange"></div>
+
+    <div class="box yellow"></div>
+
+    <input type="text" name="id"/>
+
+    <button type="button" onclick="redToggle()">깜빡</button>
+
+    <script>
+        let redBoxById = document.getElementById("red");
+        console.log(redBoxById);
+
+        let boxes = document.getElementsByClassName("box");
+        console.log(boxes);
+
+        let boxesByTag=document.getElementsByTagName("div");
+        console.log(boxesByTag);
+
+        let input = document.getElementsByTagName("id");
+        console.log(input);
+
+        let boxesBySelector=document.querySelector(".box");
+        // 요소 선택자라 .box > #red 라던지 [name="id"] 같은 요소도 받을 수 있음
+        let boxesByRedSelector=document.querySelector("#red");
+        let boxesByAllSelector=document.querySelectorAll(".box");
+        console.log(boxesBySelector);
+        console.log(boxesByRedSelector);
+        console.log(boxesByAllSelector);
+
+        document.write("안녕");
+        // document(=body)의 가장 마지막에 안녕을 추가한다
+
+        let redBox = document.getElementById("red");
+        console.log(redBox.innerText);
+        // 내부에 적혀있는 text만 가져오는 경우
+        console.log(redBox.innerHTML);
+        // <span>에 쌓여 있다는 것 까지 한번에 가져오는 경우
+
+        redBox.innerText="aaa";
+        redBox.innerHTML="<span>aaa</span>"
+        // 박스 내부에 text를 적어 넣을때 사용하는데 아래 방식을 많이 사용
+
+        console.log(redBox.className);
+        redBox.className="box yellow";
+
+        console.log(redBox.classList);
+
+        function redToggle(){
+            let redBox2 = document.getElementById("red");
+            if(redBox2.classList.contains("red")){
+                redBox2.classList.remove("red")
+            }
+            else{
+                redBox2.classList.add("red")
+            }
+        }
+
+        function redToggle2(){
+            let redBox = document.getElementById("red");
+            redBox.classList.toggle("red");
+        }
+    </script>
+</body>
+</html>

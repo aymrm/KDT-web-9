@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="red" class="box red">
+            <span>붉은색</span>
+            <span>푸른색</span>
+        </div>
+        <div class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+
+    <input type="text" name="id"/>
+
+    <button type="button" onclick="createGreenBox()">생겨라</button>
+
+    <script>
+        let redBox=document.getElementById("red");
+        redBox.setAttribute("name","box");
+        // redBox가 지정하는 그것에 name이 있으면 "box"로 바꾸고 없으면 추가한다
+
+        let container=document.querySelector(".container");
+        console.log(container)
+
+        console.log(container.children)
+        // 자식 요소들을 선택해서 배열로 반환
+
+        console.log(redBox.parentNode)
+        // 가장 가까운 부모 요소 하나를 선택해 반환
+        console.log(redBox.nextElementSibling)
+        // 형제 요소중 바로 다음 요소를 선택해 반환
+
+        let orangeBox=document.getElementById("orange")
+        console.log(orangeBox.previousElementSibling)
+        // 형제 요소중 바로 앞의 요소를 선택해 반환
+
+        function createGreenBox(){
+            let createBox = document.createElement("div")
+            // div 태그의 doc를 생성하고
+            createBox.className="box green"
+            // 그 div 안에 box green 클래스를 설정해 주고
+            container.append(createBox)
+            // container 내부에서 가장 끝에 추가한다
+            container.append("안녕")
+            // 문자열이나 node 객체 모두 매개변수로 받을 수 있다
+            // appendChild는 매개변수로 node 객체만 받을 수 있다
+        }
+        // 
+
+
+    </script>
+</body>
+</html>

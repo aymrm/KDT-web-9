@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let now = new Date();
+        console.log(now);
+        console.log(now.getFullYear());
+        console.log(now.getMonth());
+        // 얘만 특이하게 -1 해서 값이 나옴
+        console.log(now.getDate());
+        console.log(now.getDay());
+        console.log(now.getTime());
+
+        let expired = new Date("2023-06-07");
+        // 23년 6월 7일의 시간 정보를 할당하는 것
+
+        console.log(now.getTime()>=expired.getTime());
+
+        console.log(Math.PI);
+        console.log(Math.E);
+        console.log(Math.max(2,5,8));
+        console.log(Math.min(2,5,8));
+        console.log(Math.random());
+        console.log(Math.round(7.9));
+        console.log(Math.floor(7.9));
+        console.log(Math.ceil(7.9));
+    </script>
+</body>
+</html>

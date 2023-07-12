@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits=["apple","banana","orange","grape"];
+
+        fruits.forEach(function (data,index,arr){
+            console.log("data: ", data);
+            console.log("index: ", index);
+            console.log("arr: ", arr);
+        })
+        // fruits.forEach((data,index,arr)=>{})랑 같은 코드
+        // forEach 내부에 함수를 받음, 바로 위의 경우 익명함수 , callback함수라 함
+        // 첫 원소부터 접근할때마다 뒤에 있는 변수들에 값을 부여하고
+        // 뒤의 실행문을 for문에 넣듯이 반복해서 실행하는 것
+        // data에는 apple banana...순서대로 들어가고
+        // index는 0 1 2...값, arr는 배열 전체 값을 가짐
+    </script>
+</body>
+</html>

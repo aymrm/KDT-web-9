@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        for(let i=0;i<100;i++){
+            arr[i]=i+1;
+        }
+
+        let sum1=0;
+        for(let i=0;i<100;i++){
+            sum1+=arr[i];
+        }
+
+        let sum2=0;
+        for(let x of arr){
+            sum2+=x;
+        }
+
+        let sum3=0;
+        arr.forEach((data)=>{
+            sum3+=data;
+        })
+
+        let sum4=100;
+        arr.forEach((data,index)=>{
+            sum4+=index;
+        })
+
+        console.log(sum1,sum2,sum3,sum4);
+
+    </script>
+</body>
+</html>
