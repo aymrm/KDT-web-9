@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        작성자
+        <input type="text" id="writer">
+    </div>
+    <div>
+        내용
+        <input type="text" id="content">
+    </div>
+
+    <br/>
+
+    <button type="button" onclick="create_box()">작성</button>
+
+    <br/><br/>
+
+    <table border="1" class="result">
+        <tr class="0th">
+            <td>번호</td>
+            <td>작성자</td>
+            <td>내용</td>
+            <td>작성일</td>
+        </tr>
+    </table>
+
+    <script>
+        let wri_val=document.getElementById("writer").value
+        let cont_val=document.getElementById("content").value
+        let index_val=document.querySelector(".result")
+        let tr_box=document.createElement("tr")
+        let td_box=document.createElement("td")
+        function create_box(){
+            let wri_val=document.getElementById("writer").value
+            let cont_val=document.getElementById("content").value
+            let table=document.querySelector(".result")
+            let table_len=table.children.length
+            let tr_box=document.createElement("tr")
+            tr_box.className=`${table_len}th`
+            table.append(tr_box)
+            let td_box1=document.createElement("td")
+            td_box1.append(table_len)
+            let td_box2=document.createElement("td")
+            td_box2.append(wri_val)
+            let td_box3=document.createElement("td")
+            td_box3.append(cont_val)
+            let td_box4=document.createElement("td")
+            let now = new Date()
+            let year= now.getFullYear()
+            let month=now.getMonth()+1
+            let date=now.getDate()
+            let hour=now.getHours()
+            let min=now.getMinutes()
+            let time_content = `${year} ${month} ${date} ${hour} ${min}`
+            td_box4.append(time_content)
+            let last_tr_box=table.children[table_len-1]
+            last_tr_box.append(td_box1)
+            last_tr_box.append(td_box2)
+            last_tr_box.append(td_box3)
+            last_tr_box.append(td_box4)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="first">
+        값 1:
+        <input type="text" id="first value"/>
+    </div>
+    <div class="second">
+        값 2:
+        <input type="text" id="second value"/>
+    </div>
+    <div class="quantity">
+        연산자:
+        <input type="text" id="quantity value" placeholder="더하기 빼기 곱하기 나누기"/>
+    </div>
+    <div class="result">
+        결과 :
+        <input type="text" id="result value"/>
+    </div>
+    <button type="button" onclick="measure()"> 결과</button>
+
+    <script>
+        function measure(){
+            let fir_val=Number(document.getElementById("first value").value);
+            let sec_val=Number(document.getElementById("second value").value);
+            let quan_val=document.getElementById("quantity value").value;
+            let res_val=document.getElementById("result value")
+            switch(quan_val){
+                case("더하기"):
+                    res_val.setAttribute("placeholder",fir_val+sec_val);
+                    break;
+                case("빼기"):
+                    res_val.setAttribute("placeholder",fir_val-sec_val);
+                    break;
+                case("곱하기"):
+                    res_val.setAttribute("placeholder",fir_val*sec_val);
+                    break;
+                case("나누기"):
+                    res_val.setAttribute("placeholder",fir_val/sec_val);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
