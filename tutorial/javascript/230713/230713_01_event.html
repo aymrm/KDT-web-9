@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+            window.addEventListener("load",()=>{
+            let div=document.querySelector("div");
+            div.style.marginLeft="100px"
+        })
+        // 웹페이지가 로드 되었을때 실행할 코드인데
+        // body에 있는 html요소들이 모두 로딩 되었을때 실행되는 것
+    </script>
+</head>
+<body>
+    <div></div>
+    <button type="button">버튼</button>
+    <input type="text" name="id" placeholder="id"/>
+    <input type="password" name="password" id="password" placeholder="password"/>
+    <input type="password" name="password_check" id="password_check" placeholder="password 확인"/>
+
+    <script>
+        let butt=document.querySelector("button");
+        butt.addEventListener("click",function(){
+            alert("click");
+        })
+        // 자바에서 버튼에 onclick 요소를 주는 것
+
+        butt.addEventListener("mouseover",function(){
+            alert("over");
+        })
+        // hover 요소를 추가할때 즉, 마우스 커서를 올려놨을때의 이벤트를 주는 것
+
+        butt.addEventListener("mousedown",function(){
+            alert("down");
+        })
+        // 계속 클릭하고 있으면 발생하는 이벤트를 주는 것
+
+        butt.addEventListener("mouseup",function(){
+            alert("up");
+        })
+
+        butt.addEventListener("mouseenter",function(){
+            alert("enter");
+        })
+
+
+        let inp=document.querySelector("input")
+        inp.addEventListener("focus",(target)=>{
+            inp.style.backgroundColor="black"
+            console.log(target.currentTarget);
+        })
+        // target.currentTarget로 쓰면 지목된 inp 자체를 값으로 갖는다
+        // target 대신 event의 약자인 e로도 많이 사용한다 (매개변수라 뭐든 가능)
+        // queryselector로 하나만 선택할때는 이미 앞에 inp로 타겟을 지정했으니 의미 없으나
+        // queryselectorall 같은걸 이용하여 배열로 등장할때 각각의 요소에 대해 다루려면
+        // for문을 돌려야 되는데 그 경우에 하나 하나를 타겟으로 잡는데 사용한다고 보면 된다.
+
+        let inp2=document.querySelectorAll("input") 
+        for(let i=0; i<inp2.length;i++){
+            inp2[i].addEventListener("focus",(e)=>{
+                e.currentTarget.style.backgroundColor="black";
+            })
+        }
+
+        let pwInput=document.getElementById("password")
+        pwInput.addEventListener("keyup",(e)=>{
+            if(e.key=="enter"){
+                alert("로그인");
+            }
+        })
+        // 엔터를 하면 로그인이 되도록 하는 것
+
+        let pwChange=document.getElementById("password_check")
+        pwChange.addEventListener("change",(e)=>{
+            if(pwInput.value==e.currentTarget.value){
+                alert("같다")
+            } else{
+                alert("다르다")
+            }
+        })
+        // 내부에 적혀있는 값이 변할때마다 발생하는 이벤트를 주는 것
+
+        window.addEventListener("resize",()=>{
+            console.log(window.innerWidth)
+        })
+        // 클라이언트 창의 width값을 지정? 하는것
+
+    </script>
+</body>
+</html>

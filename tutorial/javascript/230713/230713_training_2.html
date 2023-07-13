@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .indigo{
+            background-color: indigo;
+        }
+        .purple{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="red box"></div>
+    <button type="button" onclick="colorChange()"> 버튼 </button>
+
+    <script>
+        let colorArr=["red","orange","yellow","green","blue","indigo","purple"]
+        let index=0;
+        function colorChange(){
+            let nowColor=colorArr[index%7]
+            let nextColor=colorArr[(index+1)%7]
+            $(".box").removeClass(nowColor)
+            $(".box").addClass(nextColor)
+            index++
+        }
+    </script>
+</body>
+</html>

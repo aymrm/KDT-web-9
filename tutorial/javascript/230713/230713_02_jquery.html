@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: aqua;
+            transition:1s;
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .orange{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" name="id" id="id"/>
+    <input type="text" name="pw" id="pw"/>
+    <button onclick="idSubmit()">바껴라</button>
+    <button onclick="btn()">바껴라</button>
+
+    <div></div>
+
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+
+    <button type="button" onclick="contentSearch()">탐색</button>
+
+    <script>
+        function contentSearch(){
+            $(".container").children()
+            $(".orange").parents(".container")
+            // orange 태그의 부모중 container 태그를 포함하는 부모
+        }
+        function idSubmit(){
+            let jqueryval=$("#id").val()
+            let jsval=document.getElementById("id").value
+            console.log(jqueryval,jsval)
+
+
+            document.getElementById("id").value="aaa";
+            $("#id").val("aaa");
+            // 둘 씩 같은 코드임을 알 수 있다.
+            
+            $("div").css("background-color","blue")
+            $("div").css("border-radius","20px")
+
+            $("input").attr("placeholder","아이디를 입력하세요")
+            // attr는 속성에 접근하는 것
+
+            $("div").text("<p>hi</p>")
+            // innertext 함수
+            $("div").html("<p>hi</p>")
+            // innerhtml 함수
+
+            $("div").append("<h1>안녕</h1>")
+            // 그냥 java에서는 createlement로 생성하고 넣어야 하는데
+            // jquery는 이렇게 바로 넣어 버릴 수 있다 appendchild는 없음
+            // prepend , after , before은 존재하는것 같다
+        }
+        
+        // $("div").empty()
+        // 내부를 비워버리는 함수 특정 요소를 지우는 remove도 존재
+
+        $("input").val("aaaa");
+        // jquery에서는 이렇게 쓰면 저 태그의 모든 요소를 다 가져와 한번에 값을 준다.
+
+        // $("div").addClass("red")
+        // 마찬가지로 모든 태그를 다 가져와 red를 한번에 준다
+
+        function btn(){
+            $("div").removeClass()
+            // 클래스 값들을 모두 삭제한다
+            $("div").removeClass("red")
+            // 클래스 값중에 red만 없앤다
+            $("div").hasClass("red")
+            // red클래스를 가지고 있는지 아닌지 boolean 값을 반환하는 함수
+
+            $("div").toggleClass("red")
+            // red 클래스가 있으면 빼고 없으면 넣는다
+        }
+    </script>
+</body>
+</html>

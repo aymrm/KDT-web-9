@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width:300px;
+            height:300px;
+            position:absolute;
+            z-index:1;
+        }
+        .container{
+            display:flex;
+            position: relative;
+        }
+        button{
+            top:0px;
+            z-index:2;
+            margin-left:20px;
+            margin-top:280px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../img/apple.jpg" id="apple"/>
+        <img src="../img/banana.jpg" id="banana" hidden="true"/>
+        <img src="../img/grape.jpg" id="grape" hidden="true"/>
+        <img src="../img/peach.jpg" id="peach" hidden="true"/>
+        <button type="button" onclick="imgMain()">사과</button>
+        <button type="button" onclick="imgMain()">바나나</button>
+        <button type="button" onclick="imgMain()">포도</button>
+        <button type="button" onclick="imgMain()">복숭아</button>
+    </div>
+
+    <script>
+        let idArr=["apple","banana","grape","peach"]
+        function imgmain(){
+            $("img").attr("hidden","true")
+            $("#banana").remove("hidden")
+        }
+    </script>
+</body>
+</html>
