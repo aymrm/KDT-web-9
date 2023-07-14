@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: deepskyblue;
+            color:white;
+        }
+        .box{
+            font-size: 100px;
+        }
+        @media screen and (max-width:700px){
+            body{
+                background-color: green;
+            }
+        }
+        /* 유형으로 screen을 가장 많이 쓰며 print, all도 자주 쓴다 */
+        /* print가 뭔지는 따로 확인 */
+        /* 크기 조건은 max mi-width min min-height */
+        /* max-width: 오른쪽에 나온 숫자 값 이하일 때 */
+        /* 변화하는 것 만 적음 */
+
+        @media screen and (max-width:500px){
+            body{
+                background-color: yellow;
+            }
+        }
+
+        @media screen and (max-width:300px){
+            body{
+                background-color: black;
+            }
+        }
+
+        /* ()안에 값이 orientation : landscape이면 가로 모드*/
+        /* ()안에 값이 orientation : portrait이면 세로 모드*/
+
+        @media screen and (orientation:landscape){
+            body{
+                background-color: blue;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">Hi</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        table{
+            text-align:center;
+        }
+        .title{
+        }
+    </style>
+</head>
+<body>
+    <div>
+        날짜:
+        <input type="text" id="date">
+    </div>
+
+    <div>
+        내용:
+        <input type="text" id="content">
+    </div>
+
+    <button type="button">작성</button>
+
+    <table border=1 align="center" cellpadding="20" >
+        <tr>
+            <td colspan="7">2023년 7월</td>
+        </tr>
+        <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+        </tr>
+        <tr>
+            <td colspan="6"></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>31</td>
+        </tr>
+    </table>
+
+    <script>
+        $("td").on("click",function(){
+            $("#date").attr("value",$(this).text())
+        })
+
+        $("button").on("click",function(){
+            let date_val=Number($("#date").val())
+            let content_val=$("#content").val()
+            let td_val=(date_val+5)%7
+            let tr_val=(date_val+5-td_val)/7+3
+        })
+    </script>
+</body>
+</html>
