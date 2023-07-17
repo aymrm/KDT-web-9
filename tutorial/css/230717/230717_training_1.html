@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display:grid;
+            height:400px;
+            grid-template-areas:
+            "header header header header header header"
+            "nav main1 main1 main1 main1 aside"
+            "nav main2 main2 main3 main3 aside"
+            "footer footer footer footer footer footer";
+        }
+        .center1{
+            text-align:center;
+        }
+        .color_1{
+            background-color: #F94144;
+            grid-area:header;
+            padding-top:40px;
+        }
+        .color_2{
+            background-color: #F3722c;
+            grid-area:nav;
+            padding-top:80px;
+        }
+        .color_3{
+            background-color: #F9C74F;
+            grid-area:main1;
+            padding-top:40px;
+        }
+        .color_4{
+            background-color: #F8961E;
+            grid-area:main2;
+            padding-top:40px;
+        }
+        .color_5{
+            background-color: #90BE6D;
+            grid-area:main3;
+            padding-top:40px;
+        }
+        .color_6{
+            background-color: #43AA8B;
+            grid-area:aside;
+            padding-top:80px;
+        }
+        .color_7{
+            background-color: #4444FF;
+            grid-area:footer;
+            padding-top:40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="color_1 center1"><div>#F94144</div></div>
+        <div class="color_2 center1"><div>#F3722c</div></div>
+        <div class="color_3 center1"><div>#F9C74F</div></div>
+        <div class="color_4 center1"><div>#F8961E</div></div>
+        <div class="color_5 center1"><div>#90BE6D</div></div>
+        <div class="color_6 center1"><div>#43AA8B</div></div>
+        <div class="color_7 center1"><div>#4444FF</div></div>
+    </div>
+</body>
+</html>

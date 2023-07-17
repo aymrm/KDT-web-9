@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            height: 500px;
+            /* repeat(3,200px)을 이용해서 쓸 수도 있음 */
+            /* repeat(3,1fr)을 쓰면 부모의 길이를 3등분해서 넣어줌 */
+            grid-template-rows: repeat(3,200px);
+            /* grid-template-columns: repeat(3,minmax(200px,auto)); */
+            /* 최댓값과 최소값을 정의해서 사용할 수 있음 */
+            /* row-gap:20px;
+            column-gap: 20px; */
+            /* =gap(20px,20px) */
+            /* justify-items:center;
+            align-items:center;
+            place-items:center; */
+            /* items=자식요소가 있을 수 있는 공간 내에서 정렬 */
+            /* content : 부모 요소 자체를 통채로 정렬 */
+
+            grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+            /* 비워주고 싶을때는 .을 쓰면 됨 */
+        }
+        .item{
+            width:100px;
+            height:100px;
+        }
+        .red{
+            background-color: red;
+            /* grid-column:auto/span 2; */
+            /* grid-column:1/4 */
+            /* grid 라인을 1부터 시작해서 4까지 하겠다는 것 */
+            /* grid-column-strat:1 grid-column-end:4로도 가능*/
+            /* grid-column : 1/ span3 으로 도가능하다*/
+            /* grid-column: auto / span 3도 활용해보기*/
+            /* place-self:center; */
+            grid-area:header;
+        }
+        .orange{
+            background-color: orange;
+            /* align-self:center; */
+            /* justify-self:center; */
+            /* 자기 자신을 가운데 정렬하는 것 */
+            grid-area:nav;
+        }
+        .yellow{
+            background-color: yellow;
+            /* order:1; */
+            /* 그리드 내에서 순서를 배치하는 것인데 작을수록 먼저 하는 것 */
+            grid-area:main;
+        }
+        .green{
+            background-color: green;
+            grid-area:aside;
+        }
+        .blue{
+            background-color: blue;
+            grid-area:footer;
+        }
+        /* .navy{
+            background-color: navy;
+        }
+        .purple{
+            background-color: purple;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item red"></div>
+        <div class="item orange"></div>
+        <div class="item yellow"></div>
+        <div class="item green"></div>
+        <div class="item blue"></div>
+        <!-- <div class="item navy"></div>
+        <div class="item purple"></div> -->
+    </div>
+</body>
+</html>
