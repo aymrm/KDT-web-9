@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+        .sec3{
+            display:flex;
+            text-align: center;
+            width:100vw;
+            height:auto;
+        }
+        .sec3 > div{
+            width:50%;
+            align-items: center;
+            aspect-ratio: 3 / 1;
+        }
+        .sec3 > div > img{
+            display:inline-block;
+            vertical-align:top;
+            width:75%;
+            height:100%;
+        }
+        .sec4{
+            display: flex;
+            justify-content: space-around;
+            padding:15px;
+        }
+        .sec4 > div{
+            width:30vw;
+            font-size:13px;
+        }
+        .goods-name{
+            font-weight: 600;
+        }
+        ul{
+            padding:0;
+        }
+        .sec4 > div > a{
+            text-decoration-line: none;
+            color:black;
+        }
+        footer{
+            background-color: rgb(16, 16, 16);
+            width:100vw;
+            height:300px;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size:20px;
+        }
+        .footer-container{
+            display:flex;
+            justify-content: space-around;
+            width:90%;
+        }
+        .footer-logo{
+            width:100px;
+            border-radius: 10px;
+        }
+        .footer-sec1 > span{
+            color:gray;
+        }
+        .white{
+            color:white;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .footer-sec-container{
+            display:flex;
+            justify-content: space-around;
+            width:60%;
+        }
+
+        .footer-sec2 > span{
+            color:gray;
+        }
+
+        td{
+            padding:3px;
+        }
+        td > a{
+            text-decoration-line: none;
+            color:gray;
+        }
+        @media screen and (max-width:1620px){
+            footer{
+                font-size:16px;
+            }
+        }
+        @media screen and (max-width:1300px){
+            footer{
+                font-size:14px;
+            }
+        }
+        @media screen and (max-width:1200px){
+            .sec3{
+                display:block;
+            }
+            .sec3 > div{
+                width:100%;
+            }
+            .sec4{
+                display:block;
+                justify-content: center;
+            }
+            .sec4 > div{
+                width:100vw;
+                font-size:30px;
+            }
+            .sec4 > div > a{
+                font-size:30px;
+                font-weight: 500;
+            }
+            footer{
+                height:700px;
+                text-align: center;
+                font-size:27px;
+            }
+            .footer-container{
+                display:block;
+                width:100%;
+            }
+            .footer-sec1{
+                display:block;
+            }
+            .footer-sec2{
+                margin-left:0;
+            }
+            .footer-sec-container{
+                margin-top:3vh;
+                width:100%;
+            }
+        }
+        @media screen and (max-width:800px){
+            .sec4 > div{
+                font-size:22px;
+            }
+            .sec4 > div > a{
+                font-size:25px;
+            }
+            footer{
+                height:500px;
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-width:600px){
+            .sec4 > div{
+                font-size:18px;
+            }
+            .sec4 > div > a{
+                font-size:20px;
+            }
+            footer{
+                height:450px;
+                font-size: 16px;
+            }
+        }
+        @media screen and (max-width:480px){
+            .sec4 > div{
+                font-size:14px;
+            }
+            .sec4 > div > a{
+                font-size:15px;
+            }
+            footer{
+                height:350px;
+                font-size:12px;
+            }
+        }
+        @media screen and (max-width:370px){
+            .sec4 > div{
+                font-size:12px;
+            }
+            .sec4 > div > a{
+                font-size:12px;
+            }
+            footer{
+                font-size:11px;
+            }
+        }
+        @media screen and (max-width:320px){
+            .sec4 > div{
+                font-size:10px;
+            }
+            .sec4 > div > a{
+                font-size:8px;
+            }
+            footer{
+                font-size:8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav></nav>
+    </header>
+
+    <main>
+        <section class="1"></section>
+        <section class="2"></section>
+        <section class="sec3">
+            <div style="background-color: #ffebb6;">
+                <img src="./img/section3-new.png">
+            </div>
+            <div style="background-color: #e8f4ff;">
+                <img src="./img/section3-buy.png">
+            </div>
+        </section>
+        <section class="sec4">
+            <div>
+                <h3>상품후기보기</h3>
+                <hr/>
+                <ul style="list-style:none">
+                    <li>
+                        <div class="goods-name">주당 해창주조 해창막걸리 12도 900ml</div>
+                        <div class="goods-review">한 잔을 마시니 이미 한 병을 다 마신듣한 느낌입니다</div>
+                    </li>
+                    <br/>
+                    <li>
+                        <div class="goods-name">주당 조선 3대 명주 조정형 명인 전주 이강주 19도 375ml</div>
+                        <div class="goods-review">좋은 술인건 알겠지만 솔직히 저랑은 좀 안 맞네요</div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>공지사항</h3>
+                <hr/>
+                <a href="">사과향이 아삭 사은품 증정 이벤트</a>
+                <br/>
+                <a href="">꼬숩담백 잣막 이벤트</a>
+                <br/>
+                <a href="">사과향이 아삭 런칭 이벤트</a>
+                <br/>
+                <a href="">봄 맞이 무료배송&할인 이벤트</a>
+                <br/>
+                <a href="">서울의밤 전용 하이볼잔 드림 EVENT</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-sec1">
+                <img src="./img/ver2.png" class="footer-logo"></img>
+                <br/>
+                <span class="bold"> 주당법인 우리코딩(주) 서울지점</span>
+                <br/>
+                <span> 서울시 마포구 숭문4길 6</span>
+                <br/>
+                <span> 대표 : 홍길동 |   사업자등록번호 : 000-00-00000 |  사업자번호조회 </span>
+                <br/>
+                <span> 통신판매업신고번호:제2021-와부조안-0163호-01816호 </span>
+                <br/>
+                <span> 대표번호 : 000-0000-0000  |  팩스번호 : 00-000-0000</span>
+                <br/> 
+                <span> 메일 : judang@naver.com</span>
+            </div>
+            <div class="footer-sec-container">
+                <div class="footer-sec2">
+                    <span>CS CENTER</span>
+                    <br/>
+                    <span style="color:mediumturquoise ; font-size:20px; font-weight: bold;">070-0000-0000</span>
+                    <br/>
+                    <span>평일 : 10:00 ~ 17:00</span>
+                    <br/>
+                    <span>점심시간 : 12:00 ~ 13:00</span>
+                    <br/>
+                    <span> 토요일 , 일요일 및 공휴일 제외</span>
+                </div>
+                <div class="footer-sec3">
+                    <table>
+                        <span class="white bold">help</span>
+                        <tr>
+                            <td><a href="">1:1문의</a></td>
+                            <td><a href="">주문/배송조회</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">FAQ</a></td>
+                            <td><a href="">환불/입금</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">상품문의</a></td>
+                            <td><a href="">취소/반품/교환</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">고객센터</a></td>
+                            <td><a href="">찜리스트</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
