@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="training2/css/training2.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <img src="training2/img/apple.jpg" id="apple"/>
+        <img src="training2/img/banana.jpg" id="banana"/>
+        <img src="training2/img/grape.jpg" id="grape"/>
+        <img src="training2/img/peach.jpg" id="peach"/>
+        <button type="button" onclick="imgMain(0)">사과</button>
+        <button type="button" onclick="imgMain(1)">바나나</button>
+        <button type="button" onclick="imgMain(2)">포도</button>
+        <button type="button" onclick="imgMain(3)">복숭아</button>
+        <script>
+            function imgMain(n){
+                $("img").attr("display","none")
+                $("img")[n].attr("display","block")
+            }
+        </script>
+    </div>
+</body>
+</html>

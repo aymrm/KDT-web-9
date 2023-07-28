@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <h4>Hello Ejs</h4>
+    <h4><%= name %></h4>
+    <!-- %오른쪽 =을 띄어쓰기해서 % = 으로 쓰면 오류나는 듯 -->
+
+    <ul class="test">
+        <% for ( var i = 0 ; i < 5 ; i++){ %>
+            <li>안녕</li>
+        <% } %>
+    </ul>
+</body>
+</html>

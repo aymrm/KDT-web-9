@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <!-- onload는 페이지 로딩이 완료될때 오른쪽 함수를 한번만 실행한다는 것 -->
+    <canvas id="tutorial" width="500" height="500"></canvas>
+    <!-- 기본은 300 px  X 150 px -->
+</body>
+<script>
+    var canvas = document.getElementById("tutorial");
+    var ctx=canvas.getContext("2d");
+    function draw(){
+    var canvas=document.getElementById("tutorial");
+    if (canvas.getContext){
+        var ctx = canvas.getContext("2d");
+    }
+    ctx.fillStyle="rgba(200 , 0 , 0 , 0.6)";
+    // 마지막 값은 투명도인듯
+    ctx.fillRect(10,20,30,40);
+    // 사각형 만들기인데 rgb 색으로 칠하되 , 왼쪽에서부터 10px 위로부터 20px 떨어뜨린 후
+    // 왼쪽부터 30px 위로부터 40px 위치까지 사각형을 만들어서 색칠한다는 느낌인듯
+    ctx.fillStyle="rgba(0 , 0 , 200 , 1)";
+    ctx.strokeRect(10,20,30,40);
+    // 사각형의 윤곽선만 그리는 것
+    ctx.clearRect(20,30,10,10);
+    // 위의 사각형 부분만 지워버리는 것
+
+
+    // 경로 만들기
+    ctx.beginPath();
+    ctx.moveTo(50,140);
+    ctx.lineTo(150,60);
+    ctx.lineTo(250,140);
+    ctx.closePath();
+    ctx.stroke();
+
+}
+</script>
+</html>

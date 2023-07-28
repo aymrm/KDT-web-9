@@ -1,0 +1,16 @@
+img{
+    width:300px;
+    height:300px;
+}
+#apple{
+    display: none;
+}
+#banana{
+    display: none;
+}
+#grape{
+    display: none;
+}
+#peach{
+    display: none;
+}
