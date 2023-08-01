@@ -37,6 +37,6 @@ app.get("/kdt9",(req,res)=>{
 // localhost:8000 뒤에 /kdt9를 붙인다는 것
 
 app.listen(PORT,()=>{
-    console.log("http://localhost:${PORT}");
+    console.log(`http://localhost:${PORT}`);
 })
 // 서버를 열어주는 함수 여기서 콘솔은 아래의 터미널창

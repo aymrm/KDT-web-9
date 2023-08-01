@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <h4>GET 요청</h4>
+    <form action="/getForm" method="GET">
+        <input type="text" placeholder="id" name="id" required/>
+        <input type="password" placeholder="pw" name="pw" required/>
+        <button type="submit">제출</button>
+    </form>
+
+    <!-- submit을 가진 버튼을 누르면 action값에 있는 /getForm 링크로 전송하며 이동 -->
+
+    <hr/>
+
+    <h4>POST 요청</h4>
+    <form action="/postForm" method="POST">
+        <input type="text" placeholder="id" name="id"/>
+        <input type="password" placeholder="pw" name="pw" pattern="^([a-z0-9]{8,12})" > <br/>
+        <input type="email"/><br/>
+        <input type="radio"><br/>
+        <input type="checkbox"><br/>
+        <input type="tel"><br/>
+        <input type="number"><br/>
+        <input type="date"><br/>
+        <input type="time"><br/>
+        <input type="color"><br/>
+        <input type="submit"><br/>
+        <button type="submit">제출</button>
+    </form>
+    <!-- readonly는 제출시 값이 전송이 되기는 하지만 disabled는 있어도 전송 안 한다 -->
+</body>
+</html>

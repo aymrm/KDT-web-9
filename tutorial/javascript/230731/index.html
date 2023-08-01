@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const lists = ["apple","grape"];
+        console.log(lists[0],lists[1]);
+        [ item1 , item2 ]=lists;
+        console.log(`item1 = ${item1} , item2 = ${item2}`);
+
+        const person={
+            name:"kim",
+            age:"25",
+            gender:"m",
+            hello: function(){
+                console.log("hello");
+            }
+        };
+
+        const {name,age,gender,age:myage} = person;
+        console.log(name,age,gender);
+        // age:myage로 쓰면 person 내부에 age 속성이 myage로 변하게 되어 age로 접근 못함
+
+        const a = [1,2,3];
+        const b = [4,5];
+        const spread = [...a,...b];
+        console.log(spread);
+        // spread=[1,2,3,4,5] a.concat(b)도 가능은 하나 예전 문법
+        
+        console.log({...person});
+        // 객체도 spread 가능
+
+        const c="hello";
+        console.log([...c]);
+        // 문자열도 spread 가능
+
+        function get(a,b,...rest){
+            console.log(a,b,rest);
+        }
+        get(10,20,30,40,50);
+
+        class Cat{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+
+            mew(){
+                console.log("야옹");
+            }
+
+            eat(){
+                console.log("먹이를 먹습니다");
+            }
+
+        }
+
+        const cat1 = new Cat("나비",1);
+        const cat2 = new Cat("냥이",2);
+
+        cat1.mew();
+        cat2.mew();
+        cat1.eat();
+
+        console.log(cat1);
+    </script>
+</body>
+</html>
