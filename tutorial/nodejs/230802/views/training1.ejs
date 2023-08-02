@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>axios get 회원가입</h1>
+    <br/>
+    <form name="register">
+        <div> 이름 : <input type="text" name="userName" id="userNameInp"></div>
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="userGender" value="남자" id="userGenderMale"/> 남자
+            <input type="radio" name="userGender" value="여자" id="userGenderFemale"/> 여자
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="userBirthdayYear">
+                <% for (var i=1974 ; i<2023 ; i++) { %>
+                    <option value=<%= i %>><%= i %></option>
+                <% } %>
+            </select>
+            <label for="userBirthdayYear">년</label>
+            <select name="userBirthdayMonth">
+                <% for (var i=1 ; i<=12 ; i++){ %>
+                    <option value=<%= i %>><%= i %></option>
+                <% } %>
+            </select>
+            <label for="userBirthdayMonth">월</label>
+            <select name="userBirthdayDay">
+                <% for (var i=1 ; i<=31 ; i++) { %>
+                    <option value=<%= i %>><%= i %></option>
+                <% } %>
+            </select>
+            <label for="userBirthdayDay">일</label>
+        </fieldset>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="userHobby" value="여행"> 여행
+            <input type="checkbox" name="userHobby" value="패션"> 패션
+            <input type="checkbox" name="userHobby" value="음식"> 음식
+        </fieldset>
+        <button type="button" onclick="axiosGet()">회원가입</button>
+    </form>
+
+    <script>
+        function axiosGet(){
+            console.log("axios get");
+            const form = document.forms["register"];
+            let hobbyDoc=document.querySelectorAll("[name=userHobby]:checked");
+            let hobby=[]
+            for (var i=0 ; i<hobbyDoc.length ; i++){
+                hobby[i]=hobbyDoc[i].value;
+            }
+            const data = {
+                name:form.userName.value,
+                gender:form.userGender.value,
+                birthday:[form.userBirthdayYear.value,
+                    form.userBirthdayMonth.value,
+                    form.userBirthdayDay.value],
+                hobby
+            }
+            axios({
+                method:"GET",
+                url:"/axios",
+                params:data,
+            }).then((res)=>{
+                console.log("res",res);
+            })
+        }
+    </script>
+</body>
+</html>

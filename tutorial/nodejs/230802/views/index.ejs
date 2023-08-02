@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- nodejs에서 쓸때는 npm install을 하면 되지만 ejs는 html 같은거라 cdn으로 가져와야함 -->
+</head>
+<body>
+    <form name="register"> 
+        <label for="name">이름</label>
+        <input type="text" id="name">
+        <br/>
+        <input type="radio" name="gender" value="남자" id="male"/>
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="여자" id="female"/>
+        <label for="female">여자</label>
+        <br/>
+        <button type="button" onclick="ajaxGet()">ajax get 제출</button>
+        <!-- onclick과 form name을 둘다 register로 쓰면 아래 함수가 아니라 위 폼 이름으로 인식 -->
+        <br/>
+        <button type="button" onclick="ajaxPost()">ajax post 제출</button>
+        <br/>
+        <button type="button" onclick="axiosGet()">axios get 제출</button>
+        <br/>
+        <button type="button" onclick="axiosPost()">axios post 제출</button>
+        <br/>
+        <button type="button" onclick="fetchGet()">fetch get 제출</button>
+        <br/>
+        <button type="button" onclick="fetchPost()">fetch post 제출</button>
+    </form>
+    <div class="result"></div>
+    <script>
+        const resultBox=document.querySelector(".result");
+        function ajaxGet(){
+            console.log("ajax get")
+            const form=document.forms["register"];
+            // console.log(form);
+            // console.log(form.name);
+            // console.log(form.gender);
+            // console.log(form.name.value);
+            // console.log(form.gender.value);
+            const data={
+                name: form.name.value,
+                gender:form.gender.value,
+            }
+            $.ajax({
+                type:"GET",
+                url:"/ajax",
+                // 어떤 주소의 끝나는 지점이라 해서 end point 라고도 함
+                data: data,
+                // 위의 data 값을 data로 그대로 받는다는 건데
+                // 이렇게 동일할 경우 그냥 data만 쓰기도 함
+                success:(res)=>{
+                    console.log( "res" , res );
+                    resultBox.textContent = `GET /ajax 요청완료 ${res.name}님은 ${res.gender}시군요`;
+                    resultBox.style.color = "blue";
+                }
+            })
+        }
+        function ajaxPost(){
+            console.log("ajax post")
+            const form = document.forms["register"];
+            if (form.name.value===""){
+                alert("이름을 입력하세요");
+                return;
+            }
+            const data={
+                name:form.name.value,
+                gender:form.gender.value
+            }
+            $.ajax({
+                type:"POST",
+                url:"/ajax",
+                data:data,
+                success:(res)=>{
+                    console.log("res",res);
+                    resultBox.textContent=`POST /ajax 요청완료 ${res.name} 님은 ${res.gender}시군요`;
+                    resultBox.style.color="red";
+                }
+            })
+        }
+        function axiosGet(){
+            console.log("axios get");
+            const form = document.forms["register"];
+            if (form.name.value===""){
+                alert("이름을 입력하세요");
+                return;
+            }
+            const data={
+                name:form.name.value,
+                gender:form.gender.value
+            }
+            axios({
+                method:"GET",
+                url:"axios",
+                params:data,
+            }).then((res)=>{
+                console.log("res",res);
+                resultBox.textContent=`GET /axios 요청 완료 ${res.data.name}님은 ${res.data.gender} 입니다`;
+                resultBox.style.color="green";
+            })
+        }
+        async function axiosPost(){
+            console.log("axios post")
+            const form = document.forms["register"];
+            const data={
+                name:form.name.value,
+                gender:form.gender.value
+            }
+            const res = await axios({
+                method : "POST",
+                url : "/axios",
+                data
+            });
+            const {name,gender} = res.data;
+            resultBox.textContent=`POST /axios 요청 완료 : ${res.data.name}님은 ${res.data.gender}입니다`;
+            resultBox.style.color="purple";
+        }
+        function fetchGet(){
+            console.log("fetch get");
+            const form = document.forms["register"];
+            const url = `?name=${form.name.value}&gender=${form.gender.value}`;
+            fetch(`/fetch${url}`,{
+                method:"GET"
+            }).then(res=>{
+                console.log("res",res);
+                // json 응답을 네이티브 자바스크립트 객체로 파싱해야함
+                return res.json();
+            }).then(data=>{
+                console.log("data",data);
+                resultBox.textContent=`POST /axios 요청 완료 : ${data.name}님은 ${data.gender}입니다`;
+                resultBox.style.color="skyblue";
+            })
+        }
+        function fetchPost(){
+            console.log("fetch post");
+            const form = document.forms["register"];
+            const url = `?name=${form.name.value}&gender=${form.gender.value}`;
+            const data={
+                name:form.name.value,
+                gender:form.gender.value
+            }
+            fetch(`/fetch${url}`,{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(data)
+                // JSON stringify() : 자바스크립트 객체를 json 형식 텍스트로 변환
+                // JSON.parse() : JSON형식 텍스트를 자바스크립트 객체로 변환
+            }).then((res)=>{
+                console.log("res",res);
+                return res.json();
+            }).then((data)=>{
+                console.log("data",data);
+                resultBox=`POST /fetch 요청완료 ${data.name}님은 ${data.gender}입니다`;
+                resultBox.style.color="hotpink";
+            })
+        }
+    </script>
+</body>
+</html>

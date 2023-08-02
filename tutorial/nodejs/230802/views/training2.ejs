@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>axios post 로그인</h2>
+    <form name="register">
+        아이디 : <input type="text" name="userInputId" id="userInputId">
+        <br/>
+        비밀번호 : <input type="password" name="userInputPw" id="userInputPw">
+        <br/>
+    </form>
+    <button type="button" onclick="axiosPost()">로그인</button>
+    <div class="result"></div>
+    <script>
+        function axiosPost(){
+            console.log("axios post");
+            const resultBox=document.querySelector(".result");
+            const form=document.forms["register"];
+            const data={
+                    userInputId:form.userInputId.value,
+                    userInputPw:form.userInputPw.value
+                }
+            axios({
+                method:"POST",
+                url:"/axios",
+                data
+            }).then(res=>{
+                console.log(res.data)
+                if (res.data){
+                    resultBox.textContent="로그인 성공";
+                    resultBox.style.color="blue";
+                } else{
+                    resultBox.textContent="로그인 실패";
+                    resultBox.style.color="red";
+                }
+            })
+        } 
+    </script>
+</body>
+</html>
