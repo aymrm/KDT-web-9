@@ -95,7 +95,7 @@
             }
             axios({
                 method:"GET",
-                url:"axios",
+                url:"/axios",
                 params:data,
             }).then((res)=>{
                 console.log("res",res);
@@ -139,10 +139,6 @@
             console.log("fetch post");
             const form = document.forms["register"];
             const url = `?name=${form.name.value}&gender=${form.gender.value}`;
-            const data={
-                name:form.name.value,
-                gender:form.gender.value
-            }
             fetch(`/fetch${url}`,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},

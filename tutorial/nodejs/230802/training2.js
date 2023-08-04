@@ -18,7 +18,7 @@ const userPw = "asdf";
 app.post("/axios",(req,res)=>{
     let flag = false;
     if (req.body.userInputId===userId && req.body.userInputPw===userPw){
-        flag=true;
+        flag = true;
     }
     console.log(req.body);
     res.send(flag);

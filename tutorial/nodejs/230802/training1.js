@@ -9,7 +9,7 @@ app.set("view engine","ejs");
 app.set("views","./views");
 
 app.get("/",(req,res)=>{
-    res.render("training");
+    res.render("training1");
 })
 
 app.get("/axios",(req,res)=>{
