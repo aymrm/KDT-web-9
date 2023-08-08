@@ -1,0 +1,53 @@
+cmd 창 열기
+
+c:\Program Files\MySQL\MySQL Server 8.0\bin
+으로 이동 후 링크를 가지고 와서 cmd에서 cd 로 이동
+
+mysql -u root -p
+로 mysql을 실행하는데 user이름 root이며
+password를 입력하겠다는 뜻
+
+root를 입력해서 입장
+
+
+show databases
+데이터 베이스에 어떤 테이블이 있는지 확인 코드
+
+
+//DDL 파트
+CREATE DATABASE kdt9 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
+데이터 베이스 자체를 하나 생성하는 것
+
+use kdt9
+
+CREATE TABLE member(
+id VARCHAR(10) NOT NULL PRIMARY KEY,
+name VARCHAR(10) NOT NULL,
+birthday DATE NOT NULL,
+code INT auto_increment
+);
+
+auto_increment : 앞 사람부터 차례대로 1씩 늘려가며 주는것
+
+DESC member;
+테이블 구조를 보는 코드
+
+1.column 삭제
+alter table member drop column code;
+
+2.column 추가
+alter table member add pw varchar(10) not null;
+
+3.column 속성 변경
+alter table member modify id varchar(20)
+
+주의: 다른 값들도 다 넣지 않으면 기본값으로 들어감
+
+primary key만 null의 기본값이 not null이다
+
+
+drop은 테이블 자체가 필요 없어졌거나 해서 아에 없앨때
+truncate는 테이블을 다시 쓰긴 할거라 초기화만 하는 경우
+
+
+//DML파트

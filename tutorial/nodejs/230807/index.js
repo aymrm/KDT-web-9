@@ -8,10 +8,18 @@ app.use(express.json());
 app.set("view engine","ejs");
 app.set("views","./views");
 
-const router = require("./routes/index.js");
-app.use("/",router);
+// const indexRouter = require("./routes/index.js");
+// app.use("/",indexRouter);
 
-app.get("*",(req,res)=>{
+const visitorRouter = require("./routes/visitor.js");
+
+app.get("/",(req,res)=>{
+    res.render("index");
+})
+
+app.use("/visitor",visitorRouter);
+
+app.use("*",(req,res)=>{
     res.render("404");
 })
 
