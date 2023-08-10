@@ -17,30 +17,31 @@
     </form>
     <br/>
 
-    <form action="/user/profile" method="post" name="profile-form">
-        <input type="hidden" name="userid"/>
+    <form name="profile-form" method="post" action="/user/profile">
+        <input type="hidden" id="userId"/>
     </form>
 
     <script>
         function userLogin(){
+            console.log("user login");
             const form = document.forms["login-form"];
+            console.log("id",form.loginUserId.value , "pw", form.loginUserPw.value);
             axios({
                 method:"POST",
                 url:"/user/login",
-                data:{
+                params:{
                     userid:form.loginUserId.value,
                     pw:form.loginUserPw.value
                 },
             }).then(res=>{
-                console.log("res",res.data);
+                console.log("res",res);
                 if(!res.data.result){
                     alert(`로그인에 실패했습니다 다시 입력해주세요`);
                     return;
                 }
                 alert(`${res.data.userid}님 로그인 하신걸 환영합니다`);
                 const profileForm = document.forms["profile-form"];
-                profileForm.userid.value=form.loginUserId.value;
-                console.log(profileForm.userid);
+                profileForm.userid.value=form.userid.value;
                 profileForm.submit();
             });
         }

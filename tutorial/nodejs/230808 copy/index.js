@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const app = express();
 const PORT = 8000;
 
@@ -7,9 +7,9 @@ app.use(express.json());
 app.set("view engine","ejs");
 app.set("views","./views");
 
-const router = require("./routes/index.js");
+import router from "./routes/index.js"
 
-app.use("/user",router);
+app.use("/",router);
 
 app.use("*",(req,res)=>{
     res.render("404");

@@ -32,7 +32,7 @@
             }
             }).then(res=>{
                 console.log("res",res);
-                if(!res.result){
+                if(!res.data.result){
                     alert('id가 중복되어 사용할 수 없습니다 다른 id로 입력해주세요')
                     return;
                 }

@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+import mysql from "mysql2/promise";
 
 const conn = mysql.createConnection({
     host:"localhost",
@@ -7,13 +7,8 @@ const conn = mysql.createConnection({
     database:"kdt9",
     port:3306
 })
-conn.connect((err)=>{
-    if(err){
-        console.log("error");
-        return;
-    }
-    console.log("connect");
-})
+// create connection은 단일 연결이라 매번 연결이 필요하면 새로 연결함
+// 연결수가 많아지면 성능에 영향이 생김
 
 exports.duplicateId=(data)=>{
     const query =`SELECT userid FROM user where userid="${data.userid}"`;
@@ -48,9 +43,7 @@ exports.registerId = (data,cb)=>{
 
 exports.postProfile = (data,cb)=>{
     const query =`SELECT * FROM user where userid="${data.userid}"`;
-    console.log(query);
     conn.query(query,(err,rows)=>{
-        console.log("post row",rows);
         if(err){
             console.log(err);
             return;
@@ -71,7 +64,7 @@ exports.userLogin = (data,cb)=>{
             cb(false)
             return;
         }
-        console.log("rows",rows[0]);
+        console.log("rows",rows);
         cb(true);
     })
 }
