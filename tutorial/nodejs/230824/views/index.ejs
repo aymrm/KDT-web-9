@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 메인 페이지 </h1>
+    <a href="/signin">로그인 페이지</a><br/>
+    <a href="/signup">회원가입 페이지</a><br/>
+    <a href="/list">회원 리스트 조회</a><br/>
+</body>
+<script>
+    if(!"<%= isLogin %>"){
+        alert("로그인 해주세요");
+    }
+</script>
+</html>

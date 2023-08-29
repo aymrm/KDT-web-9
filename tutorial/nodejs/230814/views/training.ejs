@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #login{
+            display: none;
+        }
+        #result{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>jwt 실습</h1>
+    <div id="login">
+        <a href ="/login">로그인</a>
+    </div>
+    <div id="result">
+        kdt9님 환영합니다<br/>
+        <a href ="/logout">로그아웃</a>
+    </div>
+</body>
+<script>
+    let loginToken = localStorage.getItem("login-token");
+    if(loginToken.length>0){
+        console.log("true");
+        document.getElementById("login").style.display="none";
+        document.getElementById("result").style.display="block";
+    }
+</script>
+</html>

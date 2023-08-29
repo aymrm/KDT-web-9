@@ -51,3 +51,28 @@ truncate는 테이블을 다시 쓰긴 할거라 초기화만 하는 경우
 
 
 //DML파트
+
+
+
+
+
+
+select students.id,students.name,
+students.major,classes.id,classes.name,
+classes.room,classes.code
+from students inner join classes on students.id=classes.student_id
+
+
+>
+select a.id,a.name,
+a.major,b.id,b.name,
+b.room,b.code
+from students as a inner join classes as b on students.id=classes.student_id
+
+>
+select a.id as "학생 아이디",a.name as "학생 이름",
+a.major as "학생 전공",b.id,b.name,
+b.room,b.code
+from students as a inner join classes as b on students.id=classes.student_id
+
+느낌으로 이름 바꿔서 테이블에 쓸 수도 있음

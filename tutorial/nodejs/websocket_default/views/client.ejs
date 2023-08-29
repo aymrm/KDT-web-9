@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>투표 하기</h1>
+        <div>
+            <input type="hidden" id="check" value="0"/>
+            <button id="typeOne">A타입</button>
+            <button id="typeTwo">B타입</button>
+        </div>
+        <div>
+            <h3>투표 결과</h3>
+            <p>A타입: <span id="resultOne"></span></p>
+            <p>B타입: <span id="resultTwo"></span></p>
+        </div>
+
+        <script>
+            const socket = new WebSocket('ws://localhost:8000');
+            const typeOne = document.querySelector('#typeOne');
+            const typeTwo = document.querySelector('#typeTwo');
+
+            typeOne.addEventListener('click',(event)=>{
+                const check = document.querySelector('#check').value
+                console.log('check',check);
+                if (check==1){
+                    alert('이미 투표한 참가자입니다');
+                    return;
+                } else{
+                    socket.send("a");
+                }
+            })
+            typeTwo.addEventListener('click',(event)=>{
+                const check = document.querySelector('#check').value
+                console.log("check",check)
+                if (check==1){
+                    alert('이미 투표한 참가자입니다');
+                    return;
+                } else{
+                    socket.send("b");
+                }
+            })
+
+            //서버에 연결 요청
+            socket.addEventListener('open', (event) => {
+                //send() 함수는 백엔드로 메세지를 전송
+                console.log('서버에 연결되었습니다');
+            });
+            //메세지 주고 받음
+            socket.addEventListener('message', (event) => {
+                console.log("event parse",JSON.parse(event.data))
+                const data = JSON.parse(event.data)
+                const resultOne = document.querySelector("#resultOne");
+                const resultTwo = document.querySelector("#resultTwo");
+                const {typeOne,typeTwo} = data
+                resultOne.textContent = typeOne
+                resultTwo.textContent = typeTwo
+                const check = document.querySelector('#check')
+                check.value = "1";
+            });
+            //오류이벤트
+            socket.addEventListener('error', (event) => {
+                console.log('오류가 발생하였습니다', event.error);
+            });
+
+            //종료이벤트
+            socket.addEventListener('close', () => {
+                console.log('서버와 연결이 종료됨');
+            });
+        </script>
+    </body>
+</html>

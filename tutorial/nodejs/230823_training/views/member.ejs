@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <style>
+        .member_main{
+            position:relative;
+        }
+        .member_box{
+            position:absolute;
+            background-color: white;
+        }
+        form{
+            position:absolute;
+            top : 100px;
+        }
+    </style>
+</head>
+<body>
+    <header class="button_main">
+        <% for (let i = 0 ; i < lists.length ; i++){ %>
+            <button type="button" class='member_button' onclick="showInfo(`<%= i %>`)"><%= lists[i].name %></button>
+        <% } %>
+    </header>
+    <main class="member_main">
+        <% for (let i = 0 ; i < lists.length ; i++) { %>
+            <div class='member_box'>
+                <div>이름 : <%= lists[i].name %> </div>
+                <div>성별 : <%= lists[i].gender %> </div>
+                <div>전공 : <%= lists[i].major %> </div>
+            </div>
+        <% } %>
+    </main>
+    <form name="addMemberForm">
+        <input type="text" placeholder="이름" id="name"><br/>
+        <input type="text" placeholder="성별" id="gender"><br/>
+        <input type="text" placeholder="전공" id="major"><br/>
+        <button type="button" onclick="addMemberPost()"> 추가하기 </button>
+    </form>
+</body>
+<script>
+    let memberBoxes = document.querySelectorAll(".member_box")
+    function showInfo(index){
+        memberBoxes = document.querySelectorAll(".member_box")
+        const ind = Number(index);
+        for (let i=0 ; i < memberBoxes.length ; i++){
+            console.log(i!==ind);
+            if(i!==ind){
+                memberBoxes[i].setAttribute("style","z-index:0");
+            }else{
+                memberBoxes[i].setAttribute("style","z-index:1");
+            }
+        }
+    }
+    async function addMemberPost(){
+        const memberData = {
+            name : document.getElementById("name").value,
+            gender : document.getElementById("gender").value,
+            major : document.getElementById("major").value,
+        }
+        const res = await axios({
+            method:"POST",
+            url:"/member",
+            data:memberData,
+        })
+        const addButton = document.createElement("input")
+        addButton.type="button"
+        addButton.className="member_button"
+        addButton.onclick = showInfo(memberBoxes.length)
+        addButton.value = res.data.name
+        const buttonDiv=document.querySelector(".button_main")
+        buttonDiv.append(addButton);
+        const addData = document.createElement("div")
+        const nameDiv = document.createElement("div")
+        const genderDiv = document.createElement("div")
+        const majorDiv = document.createElement("div")
+        addData.className = "member_box"
+        nameDiv.innerText = `이름 : ${res.data.name}`
+        genderDiv.innerText = `성별 : ${res.data.gender}`
+        majorDiv.innerText = `전공 : ${res.data.major}`
+        addData.append(nameDiv)
+        addData.append(genderDiv)
+        addData.append(majorDiv)
+        const memberBox=document.querySelector(".member_main")
+        memberBox.append(addData);
+    }
+</script>
+</html>

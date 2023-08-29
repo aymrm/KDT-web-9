@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="signin-form">
+        <input type="text" name="userid" placeholder="아이디"><br/>
+        <input type="password" name="pw" placeholder="비밀번호"><br/>
+        <button type="button" onclick="userSignin()">로그인</button>
+    </form>
+    <script>
+        console.log(document.cookie);
+        async function userSignin(){
+            const form = document.forms["signin-form"];
+            try {
+                const data = {
+                    userid:form.userid.value,
+                    pw:form.pw.value,
+                }
+                const res = await axios({
+                    method:"post",
+                    url:"/signin",
+                    data,
+                })
+                console.log("signin res",res.data.result);
+                if (!res.data.result){
+                    alert("로그인 정보가 일치하지 않아 로그인 할 수 없습니다")
+                    return;
+                } else{
+                    alert(`로그인 하신걸 환영합니다`);
+                    window.location.assign("/");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+</html>
