@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+        #roomBox{
+            background-color: aquamarine;
+            width:300px;
+            height:500px;
+            position: relative;
+        }
+        #roomName{
+            background-color: rgb(127, 206, 255);
+            text-align: center;
+            padding:10px;
+        }
+        .myComment{
+            float:right;
+            background-color: white;
+            margin:10px;
+            padding:5px;
+            border-radius:2px;
+        }
+        .otherComment{
+            float:left;
+            background-color: white;
+            margin:10px;
+            padding:5px;
+            border-radius:5px;
+        }
+        #leaveButton{
+            position:absolute;
+            top:10px;
+            right:10px;
+        }
+        #chat{
+            width:300px;
+            display:flex;
+            justify-content:space-between;
+        }
+        #message{
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="roomBox">
+        <div id="roomName"></div>
+        <button type="button" id="leaveButton" onclick="leave()" >X</button>
+    </div>
+    <form id="chat">
+        <input type="text" id="message" placeholder="채팅 내용"/>
+        <button>채팅</button>
+    </form>
+
+    <script>
+        const chatRoom = prompt('채팅방을 입력하세요');
+        const userName = prompt('사용할 닉네임을 입력해주세요');
+        const roomName = document.querySelector('#roomName');
+        roomName.textContent=chatRoom;
+        const chatForm = document.querySelector('#chat');
+        const socket = io();
+        console.log(socket);
+        socket.emit('join',{userName , chatRoom});
+        
+        socket.on('create',(res)=>{
+            const div = document.createElement('div');
+            div.textContent=res;
+            const roomBox = document.querySelector('#roomBox');
+            roomBox.appendChild(div);
+        })
+
+        socket.on("chat",(res)=>{
+            const text_span = document.createElement('span');
+            const name_span = document.createElement('span')
+            const roomBox = document.querySelector('#roomBox');
+            const br = document.createElement('br');
+            console.log(res);
+            text_span.textContent=res.message;
+            name_span.textContent=res.name;
+            if(res.name === userName){
+                text_span.className='myComment'
+            } else {
+                text_span.className='otherComment'
+                roomBox.appendChild(name_span);
+                roomBox.appendChild(br);
+            }
+            roomBox.appendChild(text_span);
+            roomBox.appendChild(br);
+        })
+
+        function leave(){
+            console.log('leave');
+            socket.emit('leave',)
+        }
+
+        chatForm.addEventListener('submit',(e)=>{
+            e.preventDefault()
+            const msg = chatForm.querySelector('#message').value;
+            socket.emit('message',{name:userName,message:msg});
+            msg.value='';
+        })
+    </script>
+</body>
+</html>

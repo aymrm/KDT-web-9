@@ -5,74 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        canvas{
+        /* canvas{
             border:1px solid black;
+        } */
+        #box{
+          position:relative;
         }
+        #player{
+          position:absolute;
+          z-index:0;
+        }
+        #subtitle{
+          position:absolute;
+          z-index:1;
+          width:400px;
+          height:24px;
+          border-radius:50px;
+          top:270px;
+          left:125px;
+          background-color: white;
+          text-align: center;
+        }
+
     </style>
 </head>
-<body onload="draw()">
+<body>
     <!-- onload는 페이지 로딩이 완료될때 오른쪽 함수를 한번만 실행한다는 것 -->
-    <canvas id="tutorial" width="500" height="500"></canvas>
+    <!-- <canvas id="tutorial" width="500" height="500"></canvas> -->
     <!-- 기본은 300 px  X 150 px -->
+
+
+    <span id="box">
+      <div id="player"></div>
+      <span id="subtitle">자막 연습중</div>
+    </span>
+    <span hidden>
+      <div class="subtitle" data-start="41.000" data-end="42.000">0:41 Sing song when I’m walking home</div>
+      <div class="subtitle" data-start="42.000" data-end="45.000">0:42 Jump up to the top LeBron</div>
+      <div class="subtitle" data-start="45.000" data-end="47.000">0:45 Ding dong call me on my phone</div>
+      <div class="subtitle" data-start="47.000" data-end="49.000">0:47 Ice tea and a game of ping pong</div>
+      <div class="subtitle" data-start="49.000" data-end="50.000">0:49 This is getting heavy</div>
+      <div class="subtitle" data-start="50.000" data-end="53.000">0:50 Can you hear the bass boom, I’m ready</div>
+    </span>
 </body>
+
 <script>
-    var canvas = document.getElementById("tutorial");
-    var ctx=canvas.getContext("2d");
-    function draw(){
-    var canvas=document.getElementById("tutorial");
-    if (canvas.getContext){
-        var ctx = canvas.getContext("2d");
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  // 맨 위에 api cdm을 추가하는 느낌이라 보면 될듯한
+
+  // https://youtu.be/R9Eh8NLO03g?si=As_f_6vCk32Vy-mB
+
+  var player;
+  var timer;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+    height: '360',
+    width: '640',
+    videoId: 'R9Eh8NLO03g',
+    playerVars:{
+      'rel':0, //연관 동영상 표시 여부 0:false
+      'controls':1, //컨트롤러 표시 여부
+      'autoplay':0, //로드시 자동 재생 여부
+      'mute':0, //음소거 여부
+      'loop':0, //반복 재생 여부
+      'playsinline':0, //전체화면 재생 여부, 1이 false
+      'playlist':null, //재생할 영상 리스트
+    },
+    events: {
+      'onReady': onPlayerReady, //로드 완료시 실행 함수
+      'onStateChange': onPlayerStateChange, // 상태 변화시 실행 함수
     }
-    ctx.fillStyle="rgba(200 , 0 , 0 , 0.6)";
-    // 마지막 값은 투명도인듯
-    ctx.fillRect(10,20,30,40);
-    // 사각형 만들기인데 rgb 색으로 칠하되 , 왼쪽에서부터 10px 위로부터 20px 떨어뜨린 후
-    // 왼쪽부터 30px 위로부터 40px 위치까지 사각형을 만들어서 색칠한다는 느낌인듯
-    ctx.fillStyle="rgba(0 , 0 , 200 , 1)";
-    ctx.strokeRect(10,20,30,40);
-    // 사각형의 윤곽선만 그리는 것
-    ctx.clearRect(20,30,10,10);
-    // 위의 사각형 부분만 지워버리는 것
-
-
-    // 경로 만들기
-    ctx.beginPath();
-    ctx.moveTo(50,140);
-    ctx.lineTo(150,60);
-    ctx.lineTo(250,140);
-    ctx.closePath();
-    ctx.stroke();
-
-}
-
-function shuffle(array) {
-  for (let index = array.length - 1; index > 0; index--) {
-    const randomPosition = Math.floor(Math.random() * (index + 1));
-    const temporary = array[index];
-    array[index] = array[randomPosition];
-    array[randomPosition] = temporary;
+  });
   }
-}
 
-// 1, 2, 3으로 만들 수 있는 모든 순열의 빈도를 측정하기 위한 객체
-let count = {
-  '123': 0,
-  '132': 0,
-  '213': 0,
-  '231': 0,
-  '321': 0,
-  '312': 0
-};
-for (let i = 0; i < 1000000; i++) {
-  let array = [1, 2, 3];
-  shuffle(array);
-  count[array.join('')]++;
-}
+  function onPlayerReady(event) {
+    event.target.playVideo();
+    timerOn(event);
+    // 타이머 키기
+    // api 내부에 3분 21초에 이런걸 실행시켜라 같은 함수가 없고
+    // currentTime()이 동영상 현재 시간을 알려주긴 하나 초마다 갱신이 불가능..
+  }
+  
+  function timerOn(event){
+    timer=event.currentTime();
+    timerInterval = setInterval(()=>{
+      timer = timer + 1000;
+      console.log("time",timer);
+    },1000)
+    // 1초 마다 타이머를 갱신
+    // 그때마다 초를 뽑아오려 했으나 생각해보니 1초마다 똑같이 커지니 값만 늘려줘도 될듯
+  } 
 
-// 만들 수 있는 모든 순열의 생성 빈도 출력
-for (let key in count) {
-	console.log(`${key}: ${count[key]}`);
-}
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      done = true;
+    }
+  }
+
+  function stopVideo() {
+    clearInterval(timerInterval);
+    // 타이머 멈춤
+    player.stopVideo();
+  }
+</script>
+
+<script>
+    // var canvas = document.getElementById("tutorial");
+    // var ctx=canvas.getContext("2d");
+    // function draw(){
+    // var canvas=document.getElementById("tutorial");
+    // if (canvas.getContext){
+    //     var ctx = canvas.getContext("2d");
+    // }
+    // ctx.fillStyle="rgba(200 , 0 , 0 , 0.6)";
+    // // 마지막 값은 투명도인듯
+    // ctx.fillRect(10,20,30,40);
+    // // 사각형 만들기인데 rgb 색으로 칠하되 , 왼쪽에서부터 10px 위로부터 20px 떨어뜨린 후
+    // // 왼쪽부터 30px 위로부터 40px 위치까지 사각형을 만들어서 색칠한다는 느낌인듯
+    // ctx.fillStyle="rgba(0 , 0 , 200 , 1)";
+    // ctx.strokeRect(10,20,30,40);
+    // // 사각형의 윤곽선만 그리는 것
+    // ctx.clearRect(20,30,10,10);
+    // // 위의 사각형 부분만 지워버리는 것
+
+
+    // // 경로 만들기
+    // ctx.beginPath();
+    // ctx.moveTo(50,140);
+    // ctx.lineTo(150,60);
+    // ctx.lineTo(250,140);
+    // ctx.closePath();
+    // ctx.stroke();
+
+// }
+
+// function shuffle(array) {
+//   for (let index = array.length - 1; index > 0; index--) {
+//     const randomPosition = Math.floor(Math.random() * (index + 1));
+//     const temporary = array[index];
+//     array[index] = array[randomPosition];
+//     array[randomPosition] = temporary;
+//   }
+// }
+
+// // 1, 2, 3으로 만들 수 있는 모든 순열의 빈도를 측정하기 위한 객체
+// let count = {
+//   '123': 0,
+//   '132': 0,
+//   '213': 0,
+//   '231': 0,
+//   '321': 0,
+//   '312': 0
+// };
+// for (let i = 0; i < 1000000; i++) {
+//   let array = [1, 2, 3];
+//   shuffle(array);
+//   count[array.join('')]++;
+// }
+
+// // 만들 수 있는 모든 순열의 생성 빈도 출력
+// for (let key in count) {
+// 	console.log(`${key}: ${count[key]}`);
+// }
 
 </script>
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="monster">몬스터 hp : 100</div>
+    <progress value="100" max="100" id="moster-hp"></progress><br/><br/>
+    <img src="../img/monster.jpg" width="100px"><br/><br/>
+    <div id="user">유저 hp : 100</div>
+    <progress value="100" max="100" id="user-hp"></progress><br/>
+    <button value="1">공격</button>
+    <button value="2">방어</button>
+    <button value="3">도망</button><br/>
+    <div id="log"></div>
+
+    <script>
+        const socket = io();
+        const button =document.querySelectorAll('button');
+        button.forEach((e)=>{
+            e.addEventListener('click',()=>{
+                socket.emit('userLog',e.value);
+            })
+        })
+
+        socket.on('serverLog',(e)=>{
+            const logBox=document.querySelector('#log');
+            logBox.textContent = e;
+        })
+
+        socket.on('damage',(e)=>{
+            const logBox=document.querySelector('#log');
+            const monster = document.querySelector('#monster');
+            const user = document.querySelector('#user');
+            const monster_hp = document.querySelector('#moster-hp');
+            const user_hp = document.querySelector('#user-hp');
+            logBox.textContent = `${e.monster_damage}의 데미지를 입혔다`
+            monster_hp.value = monster_hp.value - Number(e.monster_damage);
+            user_hp.value = user_hp.value - Number(e.user_damage);
+            monster.textContent=`몬스터 hp : ${monster_hp.value}`;
+            user.textContent=`유저 hp : ${user_hp.value}`;
+            if (monster_hp.value <= 0){
+                logBox.textContent = '몬스터가 쓰러졌다'
+            }
+            if (user_hp.value <= 0){
+                logBox.textContent = '게임 오버'
+            }
+        })
+
+        // const ul = document.querySelector('ul');
+
+        // socket.on('middleConnect',(e)=>{
+        //     if(!e){
+        //         return;
+        //     }
+        //     const li = document.createElement('li');
+        //     li.textContent = `${e.name} : ${e.message}`;
+        //     ul.appendChild(li);
+        // })
+
+        // socket.emit('wake-up',{name:'clinet' , message:'hello'});
+
+        // socket.on('chat-gener',(arg)=>{
+        //     const li = document.createElement('li');
+        //     li.textContent = `${arg.name} : ${arg.message}`;
+        //     ul.appendChild(li);
+        // })
+
+        // chatForm.addEventListener('submit',(e)=>{
+        //     e.preventDefault();
+        //     const user = chatForm.querySelector('#user');
+        //     const msg = chatForm.querySelector('#message');
+        //     socket.emit('form-message',{name:user.value,message:msg.value});
+        // })
+    </script>
+</body>
+</html>

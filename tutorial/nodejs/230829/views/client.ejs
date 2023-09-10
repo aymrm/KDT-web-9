@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello World!</div>
+    <br/>
+    <button value="1">hello</button>
+    <button value="2">study</button>
+    <button value="3">bye</button>
+    <br/>
+    <div id="log"></div>
+
+    <script>
+        const socket = io();
+        const button =document.querySelectorAll('button');
+        button.forEach((e)=>{
+            e.addEventListener('click',()=>{
+                socket.emit('userLog',e.value);
+            })
+        })
+
+        socket.on('serverLog',(e)=>{
+            const logBox=document.querySelector('#log');
+            logBox.textContent = e;
+        })
+
+        // const ul = document.querySelector('ul');
+
+        // socket.on('middleConnect',(e)=>{
+        //     if(!e){
+        //         return;
+        //     }
+        //     const li = document.createElement('li');
+        //     li.textContent = `${e.name} : ${e.message}`;
+        //     ul.appendChild(li);
+        // })
+
+        // socket.emit('wake-up',{name:'clinet' , message:'hello'});
+
+        // socket.on('chat-gener',(arg)=>{
+        //     const li = document.createElement('li');
+        //     li.textContent = `${arg.name} : ${arg.message}`;
+        //     ul.appendChild(li);
+        // })
+
+        // chatForm.addEventListener('submit',(e)=>{
+        //     e.preventDefault();
+        //     const user = chatForm.querySelector('#user');
+        //     const msg = chatForm.querySelector('#message');
+        //     socket.emit('form-message',{name:user.value,message:msg.value});
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 채팅</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #chat-box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        #message-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #message-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #send-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-box">
+        <ul id="message-list"></ul>
+        <input type="text" id="message-input" placeholder="메시지 입력">
+        <button id="send-button">보내기</button>
+    </div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+
+        const messageList = document.getElementById('message-list');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        socket.addEventListener('open', (event) => {
+            console.log('서버에 연결되었습니다.');
+        });
+
+        socket.addEventListener('message', (event) => {
+            const message = event.data;
+            const listItem = document.createElement('li');
+            listItem.textContent = message;
+            messageList.appendChild(listItem);
+        });
+
+        socket.addEventListener('close', (event) => {
+            console.log('서버 연결이 종료되었습니다.');
+        });
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            socket.send(message);
+            messageInput.value = '';
+        });
+
+        messageInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>

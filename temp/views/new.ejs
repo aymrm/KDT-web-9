@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>new 페이지</h1>
+</body>
+<script>
+    const socket = io('/');
+    // 네임 스페이스가 /new로 되어있는 소켓을 사용
+    socket.emit('userLog')
+</script>
+</html>
